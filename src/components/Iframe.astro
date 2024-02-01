@@ -1,0 +1,17 @@
+---
+interface Props {
+    url: string;
+}
+
+const { url } = Astro.props;
+---
+
+<iframe src={url}></iframe>
+
+<style scoped>
+    iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+    }
+</style>

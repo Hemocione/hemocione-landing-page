@@ -1,0 +1,20 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Iframe from "../components/Iframe.astro";
+---
+
+<Layout title="Eventos">
+    <main>
+        <Iframe url="https://eventos.hemocione.com.br" />
+    </main>
+</Layout>
+
+<style scoped>
+    body {
+        overflow: hidden;
+    }
+    main {
+        width: 100dvw;
+        height: calc(100dvh - var(--navbar-height));
+    }
+</style>

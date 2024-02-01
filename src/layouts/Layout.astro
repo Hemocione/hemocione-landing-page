@@ -1,4 +1,6 @@
 ---
+import "../styles/global.css";
+
 interface Props {
 	title: string;
 }
@@ -14,9 +16,49 @@ const { title } = Astro.props;
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
+		<title>Hemocione - {title}</title>
 	</head>
 	<body>
+		<header>
+			<nav class="container">
+				<h3>Hemocione</h3>
+				<ol class="nav-list">
+					<a href="/"><li>Inicio</li></a>
+					<a href="/eventos"><li>Eventos</li></a>
+					<a href="/competicoes"><li>Competições</li></a>
+				</ol>
+			</nav>
+		</header>
 		<slot />
 	</body>
 </html>
+
+<style scoped>
+	header {
+		height: var(--navbar-height);
+	}
+
+	nav {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	nav li:hover {
+		color: var(--hemo-color-primary);
+	}
+
+	.nav-list {
+		list-style-type: none;
+		display: inline-flex;
+		gap: 1rem;
+	}
+</style>
+
+<style is:global>
+	.container {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 0 1rem;
+	}
+</style>
