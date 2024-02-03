@@ -8,6 +8,7 @@
         </Transition>
         <iframe
             :src="url"
+            :title="title"
             width="100%"
             height="100%"
             frameborder="0"
@@ -22,6 +23,10 @@ import logo from '../assets/logo.svg';
 
 defineProps({
     url: {
+        type: String,
+        required: true
+    },
+    title: {
         type: String,
         required: true
     }
