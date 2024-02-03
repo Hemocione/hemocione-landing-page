@@ -21,6 +21,9 @@ const { title } = Astro.props;
 		<ViewTransitions />
 	</head>
 	<body>
+		<a href="#main" class="skip-to-main-content">
+			Ir para o conteúdo principal
+		</a>
 		<header>
 			<nav class="container">
 				<h3>Hemocione</h3>
@@ -43,7 +46,8 @@ const { title } = Astro.props;
 				justify-content: space-between;
 			}
 
-			nav li:hover {
+			nav li a:hover,
+			nav li a:focus {
 				color: var(--hemo-color-primary);
 			}
 
@@ -51,6 +55,21 @@ const { title } = Astro.props;
 				list-style-type: none;
 				display: inline-flex;
 				gap: 1rem;
+			}
+
+			.skip-to-main-content {
+				position: absolute;
+				left: -9999px;
+				z-index: 999;
+				padding: 1em;
+				background-color: black;
+				color: white;
+				opacity: 0;
+			}
+			.skip-to-main-content:focus {
+				left: 50%;
+				transform: translateX(-50%);
+				opacity: 1;
 			}
 		</style>
 
