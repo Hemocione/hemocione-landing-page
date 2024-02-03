@@ -50,7 +50,7 @@ function onLoad() {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #FFF;
+    background-color: var(--hemo-color-secondary);
     z-index: 1;
 
     display: flex;
