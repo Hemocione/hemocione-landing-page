@@ -1,4 +1,5 @@
 ---
+import { ViewTransitions } from "astro:transitions";
 import "../styles/global.css";
 
 interface Props {
@@ -17,6 +18,7 @@ const { title } = Astro.props;
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>Hemocione - {title}</title>
+		<ViewTransitions />
 	</head>
 	<body>
 		<header>
@@ -30,35 +32,34 @@ const { title } = Astro.props;
 			</nav>
 		</header>
 		<slot />
+		<style scoped>
+			header {
+				height: var(--navbar-height);
+			}
+
+			nav {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+			}
+
+			nav li:hover {
+				color: var(--hemo-color-primary);
+			}
+
+			.nav-list {
+				list-style-type: none;
+				display: inline-flex;
+				gap: 1rem;
+			}
+		</style>
+
+		<style is:global>
+			.container {
+				max-width: 1200px;
+				margin: 0 auto;
+				padding: 0 1rem;
+			}
+		</style>
 	</body>
 </html>
-
-<style scoped>
-	header {
-		height: var(--navbar-height);
-	}
-
-	nav {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-	}
-
-	nav li:hover {
-		color: var(--hemo-color-primary);
-	}
-
-	.nav-list {
-		list-style-type: none;
-		display: inline-flex;
-		gap: 1rem;
-	}
-</style>
-
-<style is:global>
-	.container {
-		max-width: 1200px;
-		margin: 0 auto;
-		padding: 0 1rem;
-	}
-</style>

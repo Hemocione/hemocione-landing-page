@@ -1,11 +1,11 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Iframe from "../components/Iframe.astro";
+import Iframe from "../components/Iframe.vue";
 ---
 
 <Layout title="Competições">
-    <main>
-        <Iframe url="https://hemocione-competitions.vercel.app" />
+    <main transition:animate="fade">
+        <Iframe client:load url="https://hemocione-competitions.vercel.app" />
     </main>
 </Layout>
 

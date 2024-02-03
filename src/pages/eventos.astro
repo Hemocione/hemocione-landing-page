@@ -1,11 +1,11 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Iframe from "../components/Iframe.astro";
+import Iframe from "../components/Iframe.vue";
 ---
 
 <Layout title="Eventos">
-    <main>
-        <Iframe url="https://eventos.hemocione.com.br" />
+    <main transition:animate="fade">
+        <Iframe client:load url="https://eventos.hemocione.com.br" />
     </main>
 </Layout>
 
