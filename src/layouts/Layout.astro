@@ -1,6 +1,7 @@
 ---
 import { ViewTransitions } from "astro:transitions";
 import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
 import "../styles/global.css";
 
 interface Props {
@@ -27,7 +28,13 @@ const { title } = Astro.props;
 		</a>
 		<Navbar />
 		<slot />
+		<Footer />
 		<style>
+			body {
+				display: flex;
+				flex-direction: column;
+			}
+
 			.skip-to-main-content {
 				position: absolute;
 				left: -9999px;
@@ -46,6 +53,7 @@ const { title } = Astro.props;
 
 		<style is:global>
 			.container {
+				width: 100%;
 				max-width: 1200px;
 				margin: 0 auto;
 				padding: 0 1rem;
