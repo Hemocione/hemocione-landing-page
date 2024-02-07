@@ -1,0 +1,33 @@
+<header>
+    <nav class="container">
+        <h3>Hemocione</h3>
+        <ol class="nav-list">
+            <li><a href="/">Inicio</a></li>
+            <li><a href="/eventos">Eventos</a></li>
+            <li><a href="/competicoes">Competições</a></li>
+        </ol>
+    </nav>
+</header>
+
+<style>
+    header {
+        height: var(--navbar-height);
+    }
+
+    nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    nav li a:hover,
+    nav li a:focus {
+        color: var(--hemo-color-primary);
+    }
+
+    .nav-list {
+        list-style-type: none;
+        display: inline-flex;
+        gap: 1rem;
+    }
+</style>

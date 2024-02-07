@@ -1,5 +1,6 @@
 ---
 import { ViewTransitions } from "astro:transitions";
+import Navbar from "../components/Navbar.astro";
 import "../styles/global.css";
 
 interface Props {
@@ -24,39 +25,9 @@ const { title } = Astro.props;
 		<a href="#main" class="skip-to-main-content">
 			Ir para o conteúdo principal
 		</a>
-		<header>
-			<nav class="container">
-				<h3>Hemocione</h3>
-				<ol class="nav-list">
-					<li><a href="/">Inicio</a></li>
-					<li><a href="/eventos">Eventos</a></li>
-					<li><a href="/competicoes">Competições</a></li>
-				</ol>
-			</nav>
-		</header>
+		<Navbar />
 		<slot />
-		<style scoped>
-			header {
-				height: var(--navbar-height);
-			}
-
-			nav {
-				display: flex;
-				align-items: center;
-				justify-content: space-between;
-			}
-
-			nav li a:hover,
-			nav li a:focus {
-				color: var(--hemo-color-primary);
-			}
-
-			.nav-list {
-				list-style-type: none;
-				display: inline-flex;
-				gap: 1rem;
-			}
-
+		<style>
 			.skip-to-main-content {
 				position: absolute;
 				left: -9999px;
