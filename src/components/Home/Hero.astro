@@ -1,0 +1,57 @@
+---
+import heroSVG from "../../assets/home/hero.svg";
+---
+
+<section>
+    <aside>
+        <h1>Título focado no <strong>problema</strong> que você resolve</h1>
+        <p>
+            Descreva de forma breve e direta o que é o seu produto, pra quem ele
+            é e o que torna ele tão especial.
+        </p>
+        <div>
+            <button>Faça sua doação</button>
+            <button>Seja um parceiro</button>
+        </div>
+    </aside>
+    <aside>
+        <img src={heroSVG.src} alt="Ilustração com várias imagens de ..." />
+    </aside>
+</section>
+
+<style>
+    section {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10rem;
+        padding-top: 6rem;
+    }
+
+    aside {
+        flex: 1;
+    }
+
+    h1 {
+        font-size: 3.75rem;
+        line-height: 1;
+        font-weight: 900;
+        margin-bottom: 1rem;
+    }
+
+    h1 strong {
+        color: var(--hemo-color-primary);
+        font-weight: inherit;
+    }
+
+    p {
+        font-size: 1.25rem;
+        margin-bottom: 2rem;
+        color: var(--hemo-color-blue-800);
+    }
+
+    img {
+        width: 100%;
+        object-fit: cover;
+    }
+</style>

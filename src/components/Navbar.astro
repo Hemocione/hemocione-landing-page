@@ -1,13 +1,13 @@
 ---
 import barsSVG from "../assets/icons/bars.svg";
-import logo from "../assets/navbar_logo.svg";
+import logoSVG from "../assets/navbar_logo.svg";
 
 const currentPath = Astro.url.pathname;
 ---
 
 <header>
     <nav class="container">
-        <img src={logo.src} alt="Hemocione" />
+        <img src={logoSVG.src} alt="Hemocione" />
         <input type="checkbox" id="hamburger-menu" hidden />
         <label for="hamburger-menu" class="hamburger-label">
             <img
@@ -58,7 +58,7 @@ const currentPath = Astro.url.pathname;
     .nav-list {
         list-style-type: none;
         display: inline-flex;
-        gap: 1rem;
+        gap: 2rem;
         z-index: 2;
     }
 
