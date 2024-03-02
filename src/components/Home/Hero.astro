@@ -1,5 +1,6 @@
 ---
 import heroSVG from "../../assets/home/hero.svg";
+import Button from "../../components/Button.astro";
 ---
 
 <section>
@@ -9,9 +10,9 @@ import heroSVG from "../../assets/home/hero.svg";
             Descreva de forma breve e direta o que é o seu produto, pra quem ele
             é e o que torna ele tão especial.
         </p>
-        <div>
-            <button>Faça sua doação</button>
-            <button>Seja um parceiro</button>
+        <div class="actions">
+            <Button className="donate-button">Faça sua doação</Button>
+            <Button type="plain">Seja um parceiro</Button>
         </div>
     </aside>
     <aside>
@@ -53,5 +54,16 @@ import heroSVG from "../../assets/home/hero.svg";
     img {
         width: 100%;
         object-fit: cover;
+    }
+
+    .actions {
+        display: flex;
+        gap: 1rem;
+    }
+</style>
+
+<style is:global>
+    .donate-button {
+        flex: 1;
     }
 </style>
