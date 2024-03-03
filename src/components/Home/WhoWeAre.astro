@@ -1,0 +1,52 @@
+---
+import WhoWeAreSVG from "../../assets/home/who-we-are.svg";
+import Button from "../Button.astro";
+---
+
+<section>
+    <h1>Quem somos</h1>
+    <div class="who-we-are container">
+        <aside>
+            <img src={WhoWeAreSVG.src} alt="Equipe hemocione" />
+        </aside>
+        <aside>
+            <p>
+                Somos uma ONG de jovens obstinados em promover o hábito da
+                doação de sangue no Brasil. Acreditamos que apenas a partir da
+                conscientização desde cedo conseguiremos formar uma gerações de
+                novos doadores, que dará fim a este problema.
+            </p>
+            <Button>Saiba mais</Button>
+        </aside>
+    </div>
+</section>
+
+<style>
+    section {
+        background-color: var(--hemo-color-text-primary);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+        padding: 4rem 0;
+    }
+
+    h1 {
+        color: var(--hemo-color-text-secondary);
+        font-size: 2.25rem;
+        font-weight: 700;
+        margin: 0;
+    }
+
+    .who-we-are {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    aside {
+        flex: 1;
+    }
+</style>
