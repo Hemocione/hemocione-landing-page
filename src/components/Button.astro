@@ -1,6 +1,6 @@
 ---
 interface Props {
-    type?: "primary" | "plain";
+    type?: "primary" | "secondary" | "plain";
     className?: string;
 }
 
@@ -22,6 +22,11 @@ const { type = "primary", className = "" } = Astro.props;
         transition:
             background-color 0.2s,
             border-color 0.2s;
+    }
+
+    .secondary {
+        background-color: var(--hemo-color-secondary);
+        color: var(--hemo-color-text-secondary);
     }
 
     .primary {
