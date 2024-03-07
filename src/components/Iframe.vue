@@ -41,6 +41,12 @@ function onLoad() {
 }
 </script>
 
+<style>
+html {
+    overflow: hidden;
+}
+</style>
+
 <style scoped>
 .iframe-container {
     position: relative;
