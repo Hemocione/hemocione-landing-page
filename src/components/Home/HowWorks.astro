@@ -1,4 +1,6 @@
 ---
+import Title from "../Title.astro";
+
 const CARDS = [
     {
         title: "Agende sua doação online",
@@ -19,8 +21,9 @@ const CARDS = [
 ---
 
 <section class="container">
-    <span>Doe a cada estação</span>
-    <h1>Como funciona a doação de sangue?</h1>
+    <Title subtitle="Doe a cada estação">
+        Como funciona a doação de sangue?
+    </Title>
     <div class="cards">
         {
             CARDS.map((card) => (
@@ -41,19 +44,6 @@ const CARDS = [
         align-items: center;
         justify-content: center;
         gap: 0.25rem;
-    }
-
-    span {
-        color: var(--hemo-color-primary);
-        font-size: 1.25rem;
-        font-weight: 700;
-    }
-
-    h1 {
-        color: var(--hemo-color-text-secondary);
-        font-size: 2.25rem;
-        font-weight: 700;
-        margin: 0;
     }
 
     .cards {

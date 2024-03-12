@@ -1,0 +1,23 @@
+---
+const { subtitle } = Astro.props;
+---
+
+{subtitle && <span>{subtitle}</span>}
+<h1>
+    <slot />
+</h1>
+
+<style>
+    span {
+        color: var(--hemo-color-primary);
+        font-size: 1.25rem;
+        font-weight: 700;
+    }
+
+    h1 {
+        color: var(--hemo-color-text-secondary);
+        font-size: 2.25rem;
+        font-weight: 700;
+        margin: 0;
+    }
+</style>

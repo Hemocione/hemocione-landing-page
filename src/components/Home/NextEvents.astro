@@ -1,5 +1,6 @@
 ---
 import Button from "../Button.astro";
+import Title from "../Title.astro";
 
 const EVENTS = [
     {
@@ -27,8 +28,7 @@ const EVENTS = [
 ---
 
 <section>
-    <span>Encontre um evento perto de você</span>
-    <h1>Próximos eventos</h1>
+    <Title subtitle="Encontre um evento perto de você">Próximos eventos</Title>
     <div class="cards container">
         {
             EVENTS.map((event) => (
@@ -63,19 +63,6 @@ const EVENTS = [
         justify-content: center;
         gap: 0.25rem;
         padding: 4rem 0 3rem;
-    }
-
-    span {
-        color: var(--hemo-color-primary);
-        font-size: 1.25rem;
-        font-weight: 700;
-    }
-
-    h1 {
-        color: var(--hemo-color-text-secondary);
-        font-size: 2.25rem;
-        font-weight: 700;
-        margin: 0;
     }
 
     p,
