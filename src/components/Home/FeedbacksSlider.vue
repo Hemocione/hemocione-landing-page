@@ -18,7 +18,6 @@
 
 <script lang="ts" setup>
 import { Vue3Marquee } from 'vue3-marquee'
-import { reactive } from 'vue'
 
 type ImageItem = {
     kind: 'image';
@@ -45,27 +44,16 @@ const props = defineProps<{
     duration?: number
 }>()
 
-const state = reactive({
-    currentFeedbackIndex: 0,
-})
-
 function createItemClasses(item: Item) {
-    if(item.kind === 'feedback') state.currentFeedbackIndex++
+    const color = COLORS_CLASSES[Math.floor(Math.random() * COLORS_CLASSES.length)]
 
     return {
         small: item.kind === 'image' && item.size === 'small',
         large: item.kind === 'image' && item.size === 'large',
         'on-bottom': props.direction !== 'reverse',
-        [`feedback ${COLORS_CLASSES[state.currentFeedbackIndex % COLORS_CLASSES.length]}`]: item.kind === 'feedback',
+        [`feedback ${color}`]: item.kind === 'feedback',
     }
 }
-
-// function createFeedbackClasses() {
-//     const color = COLORS_CLASSES[state.currentFeedbackIndex % COLORS_CLASSES.length]
-//     state.currentFeedbackIndex++
-
-//     return color
-// }
 </script>
 
 <style scoped>
