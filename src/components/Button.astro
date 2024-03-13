@@ -1,13 +1,14 @@
 ---
 interface Props {
+    size?: "small" | "medium";
     type?: "primary" | "secondary" | "plain";
     className?: string;
 }
 
-const { type = "primary", className = "" } = Astro.props;
+const { type = "primary", size, className = "" } = Astro.props;
 ---
 
-<button class:list={[type, className]}>
+<button class:list={[type, size, className]}>
     <slot />
 </button>
 
@@ -49,5 +50,10 @@ const { type = "primary", className = "" } = Astro.props;
 
     .plain:hover {
         border: 1px solid var(--hemo-color-primary);
+    }
+
+    .small {
+        padding: 0.5rem 1.5rem;
+        font-size: 1rem;
     }
 </style>

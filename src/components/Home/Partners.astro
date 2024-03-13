@@ -1,0 +1,47 @@
+---
+import Title from "../Title.astro";
+---
+
+<section class="container">
+    <Title>Apoios e parcerias</Title>
+    <div class="partners">
+        <img
+            src="https://www.hemocione.com.br/supporters/colegiocruzeiro.png"
+            alt="Colégio Cruzeiro"
+        />
+        <img
+            src="https://www.hemocione.com.br/supporters/colegiocruzeiro.png"
+            alt="Colégio Cruzeiro"
+        />
+        <img
+            src="https://www.hemocione.com.br/supporters/colegiocruzeiro.png"
+            alt="Colégio Cruzeiro"
+        />
+    </div>
+</section>
+
+<style>
+    section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0.25rem;
+    }
+
+    .partners {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 3rem;
+        justify-content: center;
+        align-items: center;
+        margin-top: 2rem;
+    }
+
+    img {
+        width: 250px;
+        height: 100px;
+        object-fit: cover;
+    }
+</style>

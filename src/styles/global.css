@@ -58,6 +58,24 @@ a {
     text-decoration: none;
 }
 
+p {
+    margin: 0;
+    padding: 0;
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+::-webkit-scrollbar-thumb {
+    background: var(--hemo-color-primary);
+    border-radius: 10px;
+}
+::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 10px;
+}
+
 @media (max-width: 1000px) {
     html {
       font-size: 93.75%;
