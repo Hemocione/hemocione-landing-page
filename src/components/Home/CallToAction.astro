@@ -35,4 +35,18 @@ import Button from "../Button.astro";
     aside:first-child {
         flex: 1;
     }
+
+    @media (max-width: 768px) {
+        .container {
+            flex-direction: column;
+            padding: 2rem 1rem;
+        }
+
+        aside {
+            text-align: center;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+    }
 </style>

@@ -36,7 +36,7 @@ const SOCIAL_LINKS = [
 <footer>
     <div class="container content">
         <section>
-            <img src={logoWhiteSVG.src} alt="Hemocione" />
+            <img src={logoWhiteSVG.src} class="logo" alt="Hemocione" />
         </section>
         <section>
             <h3>Hemocione</h3>
@@ -152,5 +152,29 @@ const SOCIAL_LINKS = [
     .social-links a img {
         width: 1.25rem;
         height: 1.25rem;
+    }
+
+    @media (max-width: 768px) {
+        .content {
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        section {
+            text-align: center;
+        }
+
+        .social-links {
+            justify-content: center;
+        }
+
+        .logo {
+            max-width: 10rem;
+            margin: 0 auto;
+        }
+
+        ol {
+            margin-bottom: 0;
+        }
     }
 </style>

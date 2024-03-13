@@ -10,7 +10,7 @@ import Collapse from "../Collapse.astro";
     <aside class="faq">
         <div class="title">
             <h1>Perguntas frequentes</h1>
-            <Button type="plain" size="small">Ver todas</Button>
+            <!-- <Button type="plain" size="small">Ver todas</Button> -->
         </div>
         <Collapse title="Lorem ipsum dolar sit amet consectetur">
             <p>
@@ -76,5 +76,20 @@ import Collapse from "../Collapse.astro";
         display: flex;
         flex-direction: column;
         gap: 1rem;
+    }
+
+    @media (max-width: 768px) {
+        section {
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        img {
+            display: none;
+        }
+
+        h1 {
+            margin-top: 0;
+        }
     }
 </style>

@@ -51,7 +51,7 @@ const EVENTS = [
             ))
         }
     </div>
-    <Button>Confira todos os eventos</Button>
+    <Button className="next-events-button">Confira todos os eventos</Button>
 </section>
 
 <style>
@@ -128,5 +128,13 @@ const EVENTS = [
     .card-date h4 {
         font-weight: 600;
         font-size: 0.875rem;
+    }
+</style>
+
+<style is:global>
+    @media screen and (max-width: 768px) {
+        .next-events-button {
+            width: calc(100% - 2rem);
+        }
     }
 </style>
