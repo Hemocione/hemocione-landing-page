@@ -2,7 +2,7 @@
     <Vue3Marquee clone :direction="direction" :duration="duration">
         <div v-for="(item, index) in items" :key="index" class="item" :class="createItemClasses(item)">
             <img v-if="item.kind === 'image'" class="image-showcase" :src="item.src" alt="blablabla">
-            <div v-else class="feedback" :class="createFeedbackClasses()">
+            <template v-else>
                 <p>{{ item.text }}</p>
                 <div class="author">
                     <img :src="item.authorSrc" alt="blablabla">
@@ -11,7 +11,7 @@
                         <span>{{ item.eventName }}</span>
                     </div>
                 </div>
-            </div>
+            </template>
         </div>
     </Vue3Marquee>
 </template>
@@ -50,19 +50,22 @@ const state = reactive({
 })
 
 function createItemClasses(item: Item) {
+    if(item.kind === 'feedback') state.currentFeedbackIndex++
+
     return {
         small: item.kind === 'image' && item.size === 'small',
         large: item.kind === 'image' && item.size === 'large',
         'on-bottom': props.direction !== 'reverse',
+        [`feedback ${COLORS_CLASSES[state.currentFeedbackIndex % COLORS_CLASSES.length]}`]: item.kind === 'feedback',
     }
 }
 
-function createFeedbackClasses() {
-    const color = COLORS_CLASSES[state.currentFeedbackIndex % COLORS_CLASSES.length]
-    state.currentFeedbackIndex++
+// function createFeedbackClasses() {
+//     const color = COLORS_CLASSES[state.currentFeedbackIndex % COLORS_CLASSES.length]
+//     state.currentFeedbackIndex++
 
-    return color
-}
+//     return color
+// }
 </script>
 
 <style scoped>
@@ -83,14 +86,14 @@ function createFeedbackClasses() {
     margin-left: 2rem;
     display: flex;
     align-self: flex-start;
+    flex-direction: column;
 }
 
 .item > * {
     height: fit-content;
 }
 
-.item.on-bottom,
-.item.on-bottom > * {
+.item.on-bottom {
     align-self: flex-end;
 }
 
@@ -135,12 +138,6 @@ function createFeedbackClasses() {
     height: 2.5rem;
     border-radius: 50%;
     margin-right: 1rem;
-}
-
-.author div {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
 }
 
 .author p {
