@@ -1,6 +1,6 @@
 <template>
-    <Vue3Marquee clone :direction="direction" :duration="duration">
-        <div v-for="(item, index) in items" :key="index" class="item" :class="createItemClasses(item)">
+    <Vue3Marquee :direction="direction" :duration="duration">
+        <div v-once v-for="(item, index) in items" :key="index" class="item" :class="createItemClasses(item)">
             <img v-if="item.kind === 'image'" class="image-showcase" :src="item.src" alt="blablabla">
             <template v-else>
                 <p>{{ item.text }}</p>
@@ -86,8 +86,8 @@ function createItemClasses(item: Item) {
 }
 
 .image-showcase {
-    min-width: 100%;
-    height: 100%;
+    min-width: var(--height);
+    height: var(--height);
     object-fit: cover;
 }
 
