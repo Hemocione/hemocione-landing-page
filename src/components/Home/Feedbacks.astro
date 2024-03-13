@@ -1,0 +1,76 @@
+---
+import Title from "../Title.astro";
+import FeedbacksSlider, { type Item } from "./FeedbacksSlider.vue";
+
+const ITEMS: Item[] = [
+    {
+        kind: "image",
+        size: "small",
+        src: "https://cdn.discordapp.com/attachments/962841359243444224/1217272206544080976/row-2-card-32x.jpg?ex=66036c15&is=65f0f715&hm=0960ad2c5a4f08c896c1469cc96e6982f9048163f3d66b0dca44d3a68ffa5cf4&",
+    },
+    {
+        kind: "feedback",
+        size: "default",
+        text: "Doar sangue no evento do Hemocione foi incrível! Equipe atenciosa e processo simples. Saber que posso salvar vidas é indescritível. Mal posso esperar para doar novamente!",
+        authorName: "João Sangue Bom",
+        authorSrc:
+            "https://cdn.discordapp.com/attachments/962841359243444224/1217265232528015481/fae38f7fb99740c3dc5b9d319ffcb01c.jpg?ex=66036597&is=65f0f097&hm=2348b9fad078f8b9b9eb1eb269f8d1f2eb14932af0e0aeaeb9bfdf1615f4dd6e&",
+        eventName: "Hemocione Eventos",
+    },
+    {
+        kind: "image",
+        size: "small",
+        src: "https://cdn.discordapp.com/attachments/962841359243444224/1217263815482281994/row-1-card-12x.jpg?ex=66036445&is=65f0ef45&hm=e3acfc4a8a2c508b01a71e20bacf44a575ab0efa8b1c03207d853cfb1452ef47&",
+    },
+    {
+        kind: "image",
+        size: "large",
+        src: "https://cdn.discordapp.com/attachments/962841359243444224/1217264537066143844/row-1-card-22x.jpg?ex=660364f1&is=65f0eff1&hm=46938087f6e069108268d24ddd10cf1c759a7a5f90956eded0312e563958611d&",
+    },
+    {
+        kind: "feedback",
+        size: "small",
+        text: "Foi emocionante doar sangue! Sinto-me bem em saber que posso ajudar alguém. Com certeza, farei isso novamente!",
+        authorName: "João Sangue Bom",
+        authorSrc:
+            "https://cdn.discordapp.com/attachments/962841359243444224/1217265232528015481/fae38f7fb99740c3dc5b9d319ffcb01c.jpg?ex=66036597&is=65f0f097&hm=2348b9fad078f8b9b9eb1eb269f8d1f2eb14932af0e0aeaeb9bfdf1615f4dd6e&",
+        eventName: "Hemocione Eventos",
+    },
+    {
+        kind: "feedback",
+        size: "large",
+        text: "Apoiando o Irmãos de Sangue mensalmente, sinto-me parte de algo maior. Cada contribuição é um passo para salvar vidas. Feliz em fazer minha parte!!",
+        authorName: "João Sangue Bom",
+        authorSrc:
+            "https://cdn.discordapp.com/attachments/962841359243444224/1217265232528015481/fae38f7fb99740c3dc5b9d319ffcb01c.jpg?ex=66036597&is=65f0f097&hm=2348b9fad078f8b9b9eb1eb269f8d1f2eb14932af0e0aeaeb9bfdf1615f4dd6e&",
+        eventName: "Hemocione Eventos",
+    },
+];
+---
+
+<section>
+    <Title subtitle="Eu já hemocionei e você?">
+        Confira quem já hemocionou com a gente
+    </Title>
+    <br />
+    <br />
+    <FeedbacksSlider client:only items={ITEMS} duration={100} />
+    <br />
+    <br />
+    <FeedbacksSlider
+        client:only
+        items={ITEMS}
+        duration={100}
+        direction="reverse"
+    />
+</section>
+
+<style>
+    section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0.25rem;
+    }
+</style>
