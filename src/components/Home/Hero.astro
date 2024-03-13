@@ -7,7 +7,7 @@ import Button from "../../components/Button.astro";
     <aside>
         <h1>
             Doar sangue é
-            <br>
+            <br />
             <strong>salvar vidas</strong>
         </h1>
         <p>
@@ -19,7 +19,7 @@ import Button from "../../components/Button.astro";
             <Button type="plain">Seja um parceiro</Button>
         </div>
     </aside>
-    <aside>
+    <aside class="image">
         <img src={heroSVG.src} alt="Ilustração com várias imagens de ..." />
     </aside>
 </section>
@@ -63,6 +63,29 @@ import Button from "../../components/Button.astro";
     .actions {
         display: flex;
         gap: 1rem;
+    }
+
+    @media (max-width: 1092px) {
+        .actions {
+            flex-direction: column;
+        }
+    }
+
+    @media (max-width: 768px) {
+        section {
+            height: calc(100dvh - var(--navbar-height));
+            padding: 0 1rem;
+            text-align: center;
+        }
+
+        h1 {
+            margin-top: 0;
+            font-size: 3rem;
+        }
+
+        .image {
+            display: none;
+        }
     }
 </style>
 
