@@ -10,14 +10,14 @@ import Title from "../Title.astro";
         <aside>
             <img src={WhoWeAreSVG.src} alt="Equipe hemocione" />
         </aside>
-        <aside>
+        <aside class="content">
             <p>
                 Somos uma ONG de jovens obstinados em promover o hábito da
                 doação de sangue no Brasil. Acreditamos que apenas a partir da
                 conscientização desde cedo conseguiremos formar uma gerações de
                 novos doadores, que dará fim a este problema.
             </p>
-            <Button>Saiba mais</Button>
+            <Button className="who-we-are-button">Saiba mais</Button>
         </aside>
     </div>
 </section>
@@ -40,7 +40,40 @@ import Title from "../Title.astro";
         gap: 2rem;
     }
 
+    .content {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
     aside {
         flex: 1;
+    }
+
+    @media (max-width: 768px) {
+        .who-we-are {
+            flex-direction: column;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        aside {
+            text-align: center;
+            width: 100%;
+        }
+    }
+</style>
+
+<style is:global>
+    .who-we-are-button {
+        width: fit-content;
+    }
+
+    @media screen and (max-width: 768px) {
+        .who-we-are-button {
+            width: 100%;
+        }
     }
 </style>
