@@ -91,4 +91,14 @@ const VALUES = [
         color: var(--hemo-color-text-secondary);
         margin: 0;
     }
+
+    @media (max-width: 768px) {
+        .values {
+            gap: 4rem;
+        }
+
+        .value:not(:last-child)::after {
+            display: none;
+        }
+    }
 </style>
