@@ -1,0 +1,94 @@
+---
+import Title from "../Title.astro";
+
+const VALUES = [
+    {
+        title: "Campanhas realizadas",
+        value: "X",
+    },
+    {
+        title: "Bolsas de sangue coletadas",
+        value: "X",
+    },
+    {
+        title: "Vidas impactadas",
+        value: "X",
+    },
+];
+---
+
+<section class="container">
+    <Title subtitle="Nosso impacto em números">
+        Salvando vidas com o Hemocione
+    </Title>
+    <p class="description">
+        Juntos, mudamos o mundo promovendo a doação de sangue: milhares de
+        campanhas, bolsas de sangue coletadas e vidas impactadas ao longo de X
+        anos.
+    </p>
+    <div class="values">
+        {
+            VALUES.map((value) => (
+                <div class="value">
+                    <p>{value.value}</p>
+                    <h3>{value.title}</h3>
+                </div>
+            ))
+        }
+    </div>
+</section>
+
+<style>
+    section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        gap: 0.25rem;
+    }
+
+    .description {
+        margin-top: 1rem;
+        max-width: 55rem;
+    }
+
+    .values {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 4rem;
+        margin-top: 2rem;
+    }
+
+    .value {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .value:not(:last-child)::after {
+        content: "";
+        position: absolute;
+        right: -2rem;
+        top: 50%;
+        transform: translateY(-50%);
+        height: 2rem;
+        border-right: 1px solid var(--hemo-color-slate-400);
+    }
+
+    .value p {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--hemo-color-primary);
+    }
+
+    .value h3 {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--hemo-color-text-secondary);
+        margin: 0;
+    }
+</style>
