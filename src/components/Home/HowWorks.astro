@@ -1,21 +1,27 @@
 ---
 import Title from "../Title.astro";
+import CalendarDateSVG from "../../assets/icons/calendar-date.svg";
+import SyringeSVG from "../../assets/icons/syringe.svg";
+import HeartSVG from "../../assets/icons/heart.svg";
 
 const CARDS = [
     {
         title: "Agende sua doação online",
         description:
             "Faça seu agendamento de forma rápida e fácil através da nossa plataforma online. Escolha o melhor horário para você e evite filas no local de doação.",
+        icon: CalendarDateSVG.src,
     },
     {
         title: "Doação rápida e segura",
         description:
-            "Chegou o grande dia! Após um breve processo de triagem, você estará pronto para doar sangue. Nossa equipe cuidará de você durante todo o processo de coleta, que dura apenas alguns minutos.Chegou o grande dia! Após um breve processo de triagem, você estará pronto para doar sangue. Nossa equipe cuidará de você durante todo o processo de coleta, que dura apenas alguns minutos.",
+            "Chegou o grande dia! Após um breve processo de triagem, você estará pronto para doar sangue. O processo de coleta dura apenas alguns minutos e você ganha um lanchinho!",
+        icon: SyringeSVG.src,
     },
     {
         title: "Seu sangue, uma vida salva",
         description:
-            "Depois de doar, seu sangue passa por testes. Uma vez aprovado, será usado em transfusões, tratamentos de câncer, cirurgias e emergências, ajudando a salvar vidas em toda a comunidade.",
+            "Depois de doar, o sangue passa por testes para ser usado em transfusões, tratamentos de câncer, cirurgias e emergências, ajudando a salvar vidas em toda a comunidade.",
+        icon: HeartSVG.src,
     },
 ];
 ---
@@ -28,7 +34,12 @@ const CARDS = [
         {
             CARDS.map((card) => (
                 <div class="card">
-                    <img src="" alt="" />
+                    <div class="image">
+                        <img
+                            src={card.icon}
+                            alt="Ícone ilustrativo para a doação de sangue"
+                        />
+                    </div>
                     <h3>{card.title}</h3>
                     <p>{card.description}</p>
                 </div>
@@ -49,8 +60,9 @@ const CARDS = [
     .cards {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-        gap: 1rem;
-        margin-top: 2rem;
+        gap: 3rem;
+        margin-top: 4rem;
+        flex-wrap: wrap;
     }
 
     .card {
@@ -58,8 +70,17 @@ const CARDS = [
         flex-direction: column;
         align-items: center;
         gap: 0.5rem;
+        text-align: center;
+    }
+
+    .image {
         padding: 1rem;
-        border: 1px solid var(--hemo-color-slate-300);
-        border-radius: 0.5rem;
+        border-radius: 100%;
+        background-color: var(--hemo-color-valerie);
+        width: 120px;
+        height: 120px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 </style>
