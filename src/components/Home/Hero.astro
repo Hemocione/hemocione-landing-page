@@ -1,6 +1,15 @@
 ---
 import heroSVG from "../../assets/home/hero.svg";
 import Button from "../../components/Button.astro";
+import TextCarousel from "../../components/TextCarousel.vue";
+
+const TEXT_CAROUSEL = [
+    "salvar vidas",
+    "ajudar o próximo",
+    "um gesto de amor",
+    "dar esperança",
+    "ser voluntário",
+];
 ---
 
 <section class="container">
@@ -8,7 +17,12 @@ import Button from "../../components/Button.astro";
         <h1>
             Doar sangue é
             <br />
-            <strong>salvar vidas</strong>
+            <TextCarousel
+                class="carousel"
+                texts={TEXT_CAROUSEL}
+                interval={6000}
+                client:only
+            />
         </h1>
         <p>
             Descreva de forma breve e direta o que é o seu produto, pra quem ele
@@ -44,9 +58,9 @@ import Button from "../../components/Button.astro";
         margin-bottom: 1rem;
     }
 
-    h1 strong {
+    .carousel {
         color: var(--hemo-color-primary);
-        font-weight: inherit;
+        margin-top: -0.5rem;
     }
 
     p {
