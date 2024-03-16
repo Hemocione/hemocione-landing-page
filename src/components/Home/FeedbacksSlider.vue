@@ -81,6 +81,10 @@ function createItemClasses(item: Item) {
     height: fit-content;
 }
 
+.item p {
+    line-height: 1.4rem;
+}
+
 .item.on-bottom {
     align-self: flex-end;
 }

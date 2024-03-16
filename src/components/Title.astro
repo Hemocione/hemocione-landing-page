@@ -6,23 +6,30 @@ interface Props {
 const { subtitle } = Astro.props;
 ---
 
-{subtitle && <span>{subtitle}</span>}
-<h1>
-    <slot />
-</h1>
+<div class="content">
+    {subtitle && <span>{subtitle}</span>}
+    <h1>
+        <slot />
+    </h1>
+</div>
 
 <style>
+    .content {
+        text-align: center;
+    }
+
     span {
+        display: block;
         color: var(--hemo-color-primary);
         font-size: 1.25rem;
         font-weight: 700;
+        margin-bottom: 0.5rem;
     }
 
     h1 {
         color: var(--hemo-color-text-secondary);
         font-size: 2.25rem;
         font-weight: 700;
-        margin: 0;
     }
 
     @media (max-width: 768px) {
