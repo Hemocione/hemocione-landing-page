@@ -8,4 +8,5 @@ function getFromEnv(key: string, defaultValue?: string): string {
 
 export const config = {
     hemocioneEventsApi: getFromEnv('HEMOCIONE_EVENTS_API'),
+    hemocioneEvents: getFromEnv('HEMOCIONE_EVENTS'),
 } as const;

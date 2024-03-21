@@ -1,7 +1,7 @@
 ---
+import { config } from "../../utils/environment";
 import Button from "../Button.astro";
 import Title from "../Title.astro";
-import { config } from "../../utils/environment";
 import type { HemocioneEvent } from "../../types/events";
 
 const response = await fetch(`${config.hemocioneEventsApi}/v1/event`);
@@ -14,6 +14,7 @@ interface EventCard {
     name: string;
     address: string;
     image: string;
+    url: string;
 }
 
 const formatedEvents: EventCard[] = data.map((event) => {
@@ -27,6 +28,7 @@ const formatedEvents: EventCard[] = data.map((event) => {
         name: event.name,
         address: event.location.address,
         image: event.banner,
+        url: `${config.hemocioneEvents}/event/${event.slug}`,
     };
 });
 
@@ -38,23 +40,27 @@ const slicedEvents = formatedEvents.slice(0, MAX_EVENTS);
     <div class="cards container">
         {
             slicedEvents.map((event) => (
-                <div class="card">
-                    <img src={event.image} alt="" />
-                    <div class="card-info">
-                        <div class="card-date">
-                            <p>{event.month}</p>
-                            <h4>{event.day}</h4>
-                        </div>
-                        <div class="card-location">
-                            <h4>{event.name}</h4>
-                            <p>{event.address}</p>
+                <a href={event.url} target="_blank">
+                    <div class="card">
+                        <img src={event.image} alt="" />
+                        <div class="card-info">
+                            <div class="card-date">
+                                <p>{event.month}</p>
+                                <h4>{event.day}</h4>
+                            </div>
+                            <div class="card-location">
+                                <h4>{event.name}</h4>
+                                <p>{event.address}</p>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </a>
             ))
         }
     </div>
-    <Button className="next-events-button">Confira todos os eventos</Button>
+    <a href={config.hemocioneEvents} target="_blank">
+        <Button className="next-events-button">Confira todos os eventos</Button>
+    </a>
 </section>
 
 <style>
