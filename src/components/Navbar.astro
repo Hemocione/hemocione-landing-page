@@ -27,12 +27,20 @@ const currentPath = Astro.url.pathname;
                 <li class={currentPath === "/" ? "active" : ""}>
                     <a href="/">Inicio</a>
                 </li>
-                <li class={currentPath === "/eventos" ? "active" : ""}>
+                <li class={currentPath === "/quem-somos" ? "active" : ""}>
+                    <a href="/quem-somos">Quem somos</a>
+                </li>
+                <li>
                     <a href={config.hemocioneEvents} target="_blank">Eventos</a>
                 </li>
+                <li>
+                    <a href={config.hemocioneDonation} target="_blank">
+                        Irmãos de Sangue
+                    </a>
+                </li>
                 <!-- <li class={currentPath === "/competicoes" ? "active" : ""}>
-                            <a href="/competicoes">Competições</a>
-                        </li> -->
+                    <a href="/competicoes">Competições</a>
+                </li> -->
             </ol>
             <a href={config.hemocioneApp}>
                 <Button size="small" className="signin-button">
