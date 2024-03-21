@@ -1,11 +1,19 @@
 ---
+import EleventyFetch from "@11ty/eleventy-fetch";
+
 import { config } from "../../utils/environment";
 import Button from "../Button.astro";
 import Title from "../Title.astro";
 import type { HemocioneEvent } from "../../types/events";
 
-const response = await fetch(`${config.hemocioneEventsApi}/v1/event`);
-const data: HemocioneEvent[] = await response.json();
+const data: HemocioneEvent[] = await EleventyFetch(
+    `${config.hemocioneEventsApi}/v1/event`,
+    {
+        duration: "1d",
+        type: "json",
+    },
+);
+
 const MAX_EVENTS = 3;
 
 interface EventCard {
