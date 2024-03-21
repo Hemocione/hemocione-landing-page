@@ -1,50 +1,53 @@
 ---
 import Button from "../Button.astro";
 import Title from "../Title.astro";
+import { config } from "../../utils/environment";
+import type { HemocioneEvent } from "../../types/events";
 
-const EVENTS = [
-    {
-        month: "FEV",
-        day: "26",
-        name: "Escola Eleva 2024",
-        address: "Rua Gen. Severiano, 159",
-        image: "https://eventos.hemocione.com.br/_vercel/image?url=https://cdn.hemocione.com.br/events/prod/uploads/private/1708813360078-01-gavea-campus-overview.jpg&w=1536&q=100",
-    },
-    {
-        month: "FEV",
-        day: "26",
-        name: "Escola Eleva 2024",
-        address: "Rua Gen. Severiano, 159",
-        image: "https://eventos.hemocione.com.br/_vercel/image?url=https://cdn.hemocione.com.br/events/prod/uploads/private/1708813360078-01-gavea-campus-overview.jpg&w=1536&q=100",
-    },
-    {
-        month: "FEV",
-        day: "26",
-        name: "Escola Eleva 2024",
-        address: "Rua Gen. Severiano, 159",
-        image: "https://eventos.hemocione.com.br/_vercel/image?url=https://cdn.hemocione.com.br/events/prod/uploads/private/1708813360078-01-gavea-campus-overview.jpg&w=1536&q=100",
-    },
-];
+const response = await fetch(`${config.hemocioneEventsApi}/v1/event`);
+const data: HemocioneEvent[] = await response.json();
+const MAX_EVENTS = 3;
+
+interface EventCard {
+    month: string;
+    day: string;
+    name: string;
+    address: string;
+    image: string;
+}
+
+const formatedEvents: EventCard[] = data.map((event) => {
+    const date = new Date(event.startAt);
+    const month = date.toLocaleString("pt-BR", { month: "short" });
+    const day = date.toLocaleString("pt-BR", { day: "2-digit" });
+
+    return {
+        month,
+        day,
+        name: event.name,
+        address: event.location.address,
+        image: event.banner,
+    };
+});
+
+const slicedEvents = formatedEvents.slice(0, MAX_EVENTS);
 ---
 
 <section>
     <Title subtitle="Encontre um evento perto de você">Próximos eventos</Title>
     <div class="cards container">
         {
-            EVENTS.map((event) => (
+            slicedEvents.map((event) => (
                 <div class="card">
-                    <img
-                        src="https://eventos.hemocione.com.br/_vercel/image?url=https://cdn.hemocione.com.br/events/prod/uploads/private/1708813360078-01-gavea-campus-overview.jpg&w=1536&q=100"
-                        alt=""
-                    />
+                    <img src={event.image} alt="" />
                     <div class="card-info">
                         <div class="card-date">
-                            <p>FEV</p>
-                            <h4>26</h4>
+                            <p>{event.month}</p>
+                            <h4>{event.day}</h4>
                         </div>
                         <div class="card-location">
-                            <h4>Escola Eleva 2024</h4>
-                            <p>Rua Gen. Severiano, 159</p>
+                            <h4>{event.name}</h4>
+                            <p>{event.address}</p>
                         </div>
                     </div>
                 </div>
@@ -123,11 +126,25 @@ const EVENTS = [
         width: 3rem;
         height: 3rem;
         font-size: 0.75rem;
+        text-transform: uppercase;
     }
 
     .card-date h4 {
         font-weight: 600;
         font-size: 0.875rem;
+    }
+
+    .card-location {
+        text-transform: lowercase;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+    .card-location > *::first-letter {
+        text-transform: capitalize;
     }
 </style>
 
