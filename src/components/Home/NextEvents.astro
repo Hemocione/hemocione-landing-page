@@ -42,7 +42,7 @@ const slicedEvents = formatedEvents.slice(0, MAX_EVENTS);
             slicedEvents.map((event) => (
                 <a href={event.url} target="_blank">
                     <div class="card">
-                        <img src={event.image} alt="" />
+                        <img src={event.image} alt={event.name} />
                         <div class="card-info">
                             <div class="card-date">
                                 <p>{event.month}</p>

@@ -1,5 +1,6 @@
 ---
 import Button from "../Button.astro";
+import { config } from "../../utils/environment";
 ---
 
 <section>
@@ -9,7 +10,9 @@ import Button from "../Button.astro";
             <p>Colabore com o Hemocione e ajude a salvar ainda mais vidas</p>
         </aside>
         <aside>
-            <Button type="secondary">Seja um Irmão de Sangue</Button>
+            <a href={config.hemocioneDonation} target="_blank">
+                <Button type="secondary">Seja um Irmão de Sangue</Button>
+            </a>
         </aside>
     </div>
 </section>
