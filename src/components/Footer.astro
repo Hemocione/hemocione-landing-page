@@ -1,4 +1,5 @@
 ---
+import { config } from "../utils/environment";
 import logoWhiteSVG from "../assets/logo_white.svg";
 import facebookSVG from "../assets/icons/facebook.svg";
 import twitterSVG from "../assets/icons/twitter.svg";
@@ -49,16 +50,30 @@ const SOCIAL_LINKS = [
         <section>
             <h3>Serviços</h3>
             <ol>
-                <li><a href="#">Portal do doador</a></li>
-                <li><a href="#">Eventos</a></li>
+                <li>
+                    <a href={config.hemocioneApp} target="_blank">
+                        Portal do doador
+                    </a>
+                </li>
+                <li>
+                    <a href={config.hemocioneEvents} target="_blank">
+                        Eventos
+                    </a>
+                </li>
                 <li><a href="#">Competições</a></li>
             </ol>
         </section>
         <section>
             <h3>Colabore</h3>
             <ol>
-                <li><a href="#">Irmãos de sangue</a></li>
-                <li><a href="#">Lojinha</a></li>
+                <li>
+                    <a href={config.hemocioneDonation} target="_blank">
+                        Irmãos de sangue
+                    </a>
+                </li>
+                <li>
+                    <a href={config.hemocioneApp} target="_blank">Lojinha</a>
+                </li>
             </ol>
         </section>
         <section class="social-links-container">

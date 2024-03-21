@@ -11,4 +11,5 @@ export const config = {
     hemocioneEvents: getFromEnv('HEMOCIONE_EVENTS'),
     hemocioneApp: getFromEnv('HEMOCIONE_APP'),
     hemocioneDonation: getFromEnv('HEMOCIONE_DONATION'),
+    hemocioneStore: getFromEnv('HEMOCIONE_STORE'),
 } as const;
