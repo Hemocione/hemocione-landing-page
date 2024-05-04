@@ -58,11 +58,12 @@ const CARDS = [
     }
 
     .cards {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-        gap: 3rem;
-        margin-top: 4rem;
+        display: flex;
         flex-wrap: wrap;
+        justify-content: center;
+        column-gap: 9rem;
+        row-gap: 4rem;
+        margin-top: 4rem;
     }
 
     .card {
@@ -71,6 +72,10 @@ const CARDS = [
         align-items: center;
         gap: 1rem;
         text-align: center;
+    }
+
+    .card p {
+        max-width: 250px;
     }
 
     .image {

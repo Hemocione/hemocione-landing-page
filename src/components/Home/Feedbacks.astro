@@ -2,48 +2,91 @@
 import Title from "../Title.astro";
 import FeedbacksSlider, { type Item } from "./FeedbacksSlider.vue";
 
+import MariaCecilia from "../../assets/feedbacks/1714843639.webp";
+import JoaoArthur from "../../assets/feedbacks/1714843764.webp";
+import PauloLace from "../../assets/feedbacks/1714843945.webp";
+import MarianaMolon from "../../assets/feedbacks/1714844057.webp";
+import FeedbackImage1 from "../../assets/feedbacks/1714844183.webp";
+import FeedbackImage2 from "../../assets/feedbacks/1714844180.webp";
+import FeedbackImage3 from "../../assets/feedbacks/1714844177.webp";
+import FeedbackImage4 from "../../assets/feedbacks/1714844170.webp";
+import FeedbackImage5 from "../../assets/feedbacks/1714844167.webp";
+import FeedbackImage6 from "../../assets/feedbacks/1714844163.webp";
+import FeedbackImage7 from "../../assets/feedbacks/1714844160.webp";
+import FeedbackImage8 from "../../assets/feedbacks/1714844157.webp";
+
 const ITEMS: Item[] = [
     {
         kind: "image",
+        size: "large",
+        src: FeedbackImage1.src,
+    },
+    {
+        kind: "image",
         size: "small",
-        src: "https://cdn.discordapp.com/attachments/962841359243444224/1217272206544080976/row-2-card-32x.jpg?ex=66036c15&is=65f0f715&hm=0960ad2c5a4f08c896c1469cc96e6982f9048163f3d66b0dca44d3a68ffa5cf4&",
+        src: FeedbackImage2.src,
     },
     {
         kind: "feedback",
         size: "default",
-        text: "Doar sangue no evento do Hemocione foi incrível! Equipe atenciosa e processo simples. Saber que posso salvar vidas é indescritível. Mal posso esperar para doar novamente!",
-        authorName: "João Sangue Bom",
-        authorSrc:
-            "https://cdn.discordapp.com/attachments/962841359243444224/1217265232528015481/fae38f7fb99740c3dc5b9d319ffcb01c.jpg?ex=66036597&is=65f0f097&hm=2348b9fad078f8b9b9eb1eb269f8d1f2eb14932af0e0aeaeb9bfdf1615f4dd6e&",
-        eventName: "Hemocione Eventos",
+        text: "O motivo de eu doar sangue toda vez é pela sensação que sinto após doar. Cada vez que você doa sangue você está ajudando 4 pessoas diferentes e contribuindo para a comunidade!",
+        authorName: "Maria Cecília",
+        authorSrc: MariaCecilia.src,
+        eventName: "A+",
     },
     {
         kind: "image",
-        size: "small",
-        src: "https://cdn.discordapp.com/attachments/962841359243444224/1217263815482281994/row-1-card-12x.jpg?ex=66036445&is=65f0ef45&hm=e3acfc4a8a2c508b01a71e20bacf44a575ab0efa8b1c03207d853cfb1452ef47&",
+        size: "default",
+        src: FeedbackImage3.src,
     },
     {
         kind: "image",
         size: "large",
-        src: "https://cdn.discordapp.com/attachments/962841359243444224/1217264537066143844/row-1-card-22x.jpg?ex=660364f1&is=65f0eff1&hm=46938087f6e069108268d24ddd10cf1c759a7a5f90956eded0312e563958611d&",
+        src: FeedbackImage4.src,
     },
     {
         kind: "feedback",
         size: "small",
-        text: "Foi emocionante doar sangue! Sinto-me bem em saber que posso ajudar alguém. Com certeza, farei isso novamente!",
-        authorName: "João Sangue Bom",
-        authorSrc:
-            "https://cdn.discordapp.com/attachments/962841359243444224/1217265232528015481/fae38f7fb99740c3dc5b9d319ffcb01c.jpg?ex=66036597&is=65f0f097&hm=2348b9fad078f8b9b9eb1eb269f8d1f2eb14932af0e0aeaeb9bfdf1615f4dd6e&",
-        eventName: "Hemocione Eventos",
+        text: "Eu sempre tive interesse em doar sangue, mas nunca tive a oportunidade, através de uma incrível campanha realizada pelo Hemocione na minha escola, eu finalmente doei sangue pela primeira vez.",
+        authorName: "João Arthur",
+        authorSrc: JoaoArthur.src,
+        eventName: "A+",
     },
     {
         kind: "feedback",
         size: "large",
-        text: "Apoiando o Irmãos de Sangue mensalmente, sinto-me parte de algo maior. Cada contribuição é um passo para salvar vidas. Feliz em fazer minha parte!!",
-        authorName: "João Sangue Bom",
-        authorSrc:
-            "https://cdn.discordapp.com/attachments/962841359243444224/1217265232528015481/fae38f7fb99740c3dc5b9d319ffcb01c.jpg?ex=66036597&is=65f0f097&hm=2348b9fad078f8b9b9eb1eb269f8d1f2eb14932af0e0aeaeb9bfdf1615f4dd6e&",
-        eventName: "Hemocione Eventos",
+        text: "É um momento muito bonito e a sensação é realmente incomparável, especialmente quando você recebe aquela mensagem dizendo que você acabou de salvar uma vida!",
+        authorName: "Paulo Lacê",
+        authorSrc: PauloLace.src,
+        eventName: "O+",
+    },
+    {
+        kind: "image",
+        size: "default",
+        src: FeedbackImage5.src,
+    },
+    {
+        kind: "image",
+        size: "large",
+        src: FeedbackImage6.src,
+    },
+    {
+        kind: "feedback",
+        size: "large",
+        text: "É um momento tão rápido e que significa tanto pra saúde de outras pessoas. Eu sempre tive vontade mas o que me levou a doar sangue de verdade foi a mobilização proporcionada pelo Hemocione.",
+        authorName: "Mariana Molon",
+        authorSrc: MarianaMolon.src,
+        eventName: "A+",
+    },
+    {
+        kind: "image",
+        size: "large",
+        src: FeedbackImage7.src,
+    },
+    {
+        kind: "image",
+        size: "small",
+        src: FeedbackImage8.src,
     },
 ];
 ---

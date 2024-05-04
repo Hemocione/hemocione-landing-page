@@ -1,7 +1,8 @@
 ---
-import heroSVG from "../../assets/home/hero.svg";
+import heroWEBP from "../../assets/home/hero.webp";
 import Button from "../../components/Button.astro";
 import TextCarousel from "../../components/TextCarousel.vue";
+import { config } from "../../utils/environment";
 
 const TEXT_CAROUSEL = [
     "salvar vidas",
@@ -25,16 +26,18 @@ const TEXT_CAROUSEL = [
             />
         </h1>
         <p>
-            Descreva de forma breve e direta o que é o seu produto, pra quem ele
-            é e o que torna ele tão especial.
+            O Hemocione te ajuda a doar e realizar eventos de doação de sangue,
+            envolvendo a comunidade e transformando vidas.
         </p>
         <div class="actions">
-            <Button className="donate-button">Faça sua doação</Button>
+            <a href={config.hemocioneEvents} target="_blank">
+                <Button className="donate-button">Faça sua doação</Button>
+            </a>
             <Button type="plain">Seja um parceiro</Button>
         </div>
     </aside>
     <aside class="image">
-        <img src={heroSVG.src} alt="Ilustração com várias imagens de ..." />
+        <img src={heroWEBP.src} alt="Ilustração com várias imagens de ..." />
     </aside>
 </section>
 
@@ -43,8 +46,9 @@ const TEXT_CAROUSEL = [
         display: flex;
         justify-content: space-between;
         align-items: center;
-        gap: 10rem;
-        padding-top: 6rem;
+        gap: 4rem;
+        padding-top: 7rem;
+        padding-bottom: 3rem;
     }
 
     aside {
@@ -71,7 +75,7 @@ const TEXT_CAROUSEL = [
 
     img {
         width: 100%;
-        object-fit: cover;
+        object-fit: contain;
     }
 
     .actions {

@@ -25,11 +25,11 @@ const currentPath = Astro.url.pathname;
         <div class="right-side">
             <ol class="nav-list">
                 <li class={currentPath === "/" ? "active" : ""}>
-                    <a href="/">Inicio</a>
+                    <a href="/">Home</a>
                 </li>
-                <li class={currentPath === "/quem-somos" ? "active" : ""}>
+                <!-- <li class={currentPath === "/quem-somos" ? "active" : ""}>
                     <a href="/quem-somos">Quem somos</a>
-                </li>
+                </li> -->
                 <li>
                     <a href={config.hemocioneEvents} target="_blank">Eventos</a>
                 </li>
@@ -38,16 +38,21 @@ const currentPath = Astro.url.pathname;
                         Irmãos de Sangue
                     </a>
                 </li>
+                <li>
+                    <a href={config.hemocioneStore} target="_blank">
+                        Produtos
+                    </a>
+                </li>
                 <!-- <li class={currentPath === "/competicoes" ? "active" : ""}>
                     <a href="/competicoes">Competições</a>
                 </li> -->
             </ol>
-            <a class="signin-button-anchor" href={config.hemocioneApp}>
+            <!-- <a class="signin-button-anchor" href={config.hemocioneApp}>
                 <Button size="small" className="signin-button">
                     <img src={userSVG.src} alt="Ícone de usuário" />
                     Entrar
                 </Button>
-            </a>
+            </a> -->
         </div>
     </nav>
 </header>

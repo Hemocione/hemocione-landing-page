@@ -17,6 +17,7 @@
 </template>
 
 <script lang="ts" setup>
+import { ref } from 'vue';
 import { Vue3Marquee } from 'vue3-marquee'
 
 type ImageItem = {
@@ -36,7 +37,7 @@ export type Item = {
     size: 'small' | 'default' | 'large'
 } & (ImageItem | FeedbackItem);
 
-const COLORS_CLASSES = ['blue', 'yellow', 'red']
+const COLORS_CLASSES = ['light-blue', 'blue', 'yellow', 'red']
 
 const props = defineProps<{
     direction?: 'normal' | 'reverse'
@@ -44,8 +45,12 @@ const props = defineProps<{
     duration?: number
 }>()
 
+const currentFeedbackIndex = ref(0)
+
 function createItemClasses(item: Item) {
-    const color = COLORS_CLASSES[Math.floor(Math.random() * COLORS_CLASSES.length)]
+    const color = COLORS_CLASSES[currentFeedbackIndex.value % COLORS_CLASSES.length]
+
+    if(item.kind === 'feedback') currentFeedbackIndex.value++
 
     return {
         small: item.kind === 'image' && item.size === 'small',
@@ -93,12 +98,18 @@ function createItemClasses(item: Item) {
     min-width: var(--height);
     height: var(--height);
     object-fit: cover;
+    border-radius: 1rem;
 }
 
 .feedback {
     padding: 1.5rem;
     border-radius: 1rem;
     width: 400px;
+}
+
+.feedback.light-blue {
+    color: var(--hemo-color-text-secondary);
+    background-color: var(--hemo-color-midsummers_dream);
 }
 
 .feedback.blue {

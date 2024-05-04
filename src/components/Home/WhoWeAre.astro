@@ -1,23 +1,24 @@
 ---
-import WhoWeAreSVG from "../../assets/home/who-we-are.svg";
+import WhoWeAreWEBP from "../../assets/home/who-we-are.webp";
 import Button from "../Button.astro";
 import Title from "../Title.astro";
 ---
 
 <section>
-    <Title subtitle="Hemocione">Quem somos</Title>
+    <Title subtitle="Quem somos?">Sobre o Hemocione</Title>
     <div class="who-we-are container">
         <aside>
-            <img src={WhoWeAreSVG.src} alt="Equipe hemocione" />
+            <img src={WhoWeAreWEBP.src} alt="Equipe hemocione" />
         </aside>
         <aside class="content">
+            <strong>O que nós fazemos afinal? Conscientizamos!</strong>
             <p>
                 Somos uma ONG de jovens obstinados em promover o hábito da
                 doação de sangue no Brasil. Acreditamos que apenas a partir da
                 conscientização desde cedo conseguiremos formar uma gerações de
                 novos doadores, que dará fim a este problema.
             </p>
-            <Button className="who-we-are-button">Saiba mais</Button>
+            <a href="#">Saiba mais</a>
         </aside>
     </div>
 </section>
@@ -43,7 +44,24 @@ import Title from "../Title.astro";
     .content {
         display: flex;
         flex-direction: column;
-        gap: 2rem;
+        gap: 1rem;
+    }
+
+    .content strong {
+        color: var(--hemo-color-primary);
+    }
+
+    .content a {
+        width: fit-content;
+        border-bottom: 1px solid var(--hemo-color-text-secondary);
+        padding-bottom: 0.25rem;
+        margin-top: 0.5rem;
+        transition: all 0.3s;
+    }
+
+    .content a:hover {
+        color: var(--hemo-color-primary);
+        border-bottom-color: var(--hemo-color-primary);
     }
 
     aside {

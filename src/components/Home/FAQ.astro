@@ -1,16 +1,17 @@
 ---
-import Button from "../Button.astro";
 import Collapse from "../Collapse.astro";
+import faqWEBP from "../../assets/home/faq.webp";
+import Button from "../Button.astro";
 ---
 
 <section class="container">
     <aside>
-        <img src="" alt="" />
+        <img src={faqWEBP.src} alt="" />
     </aside>
     <aside class="faq">
         <div class="title">
             <h1>Perguntas frequentes</h1>
-            <!-- <Button type="plain" size="small">Ver todas</Button> -->
+            <Button type="plain" size="small">Ver todas</Button>
         </div>
         <Collapse title="Lorem ipsum dolar sit amet consectetur">
             <p>
@@ -48,7 +49,7 @@ import Collapse from "../Collapse.astro";
         display: flex;
         justify-content: space-between;
         align-items: center;
-        gap: 5rem;
+        gap: 9rem;
     }
 
     aside {

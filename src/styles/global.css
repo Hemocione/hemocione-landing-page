@@ -14,6 +14,7 @@
     --hemo-color-background: #FFF;
     --hemo-color-link: #005FED;
     --hemo-color-cornflower_blue: #6E91C7;
+    --hemo-color-midsummers_dream: #B2CFD8;
     --hemo-color-princess_ivory: #FAEAD4;
     --hemo-color-valerie: #FCE6E8;
 
@@ -65,6 +66,7 @@ a {
 p {
     margin: 0;
     padding: 0;
+    line-height: 1.5rem;
 }
 
 ::-webkit-scrollbar {
