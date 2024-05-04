@@ -43,6 +43,7 @@ html, body {
     color: var(--hemo-color-text-secondary);
     background-color: var(--hemo-color-background);
     overflow-x: hidden;
+    scroll-behavior: smooth;
 }
 
 body {
