@@ -92,8 +92,10 @@ const TEXT_CAROUSEL = [
     @media (max-width: 768px) {
         section {
             height: calc(100dvh - var(--navbar-height));
-            padding: 0 1rem;
+            padding: 2rem 1rem;
             text-align: center;
+            flex-direction: column-reverse;
+            gap: 2rem;
         }
 
         h1 {
@@ -102,13 +104,14 @@ const TEXT_CAROUSEL = [
         }
 
         .image {
-            display: none;
+            flex: 0;
         }
     }
 </style>
 
 <style is:global>
     .donate-button {
+        width: 100%;
         flex: 1;
     }
 </style>
