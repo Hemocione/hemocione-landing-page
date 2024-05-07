@@ -1,6 +1,5 @@
 ---
 import WhoWeAreWEBP from "../../assets/home/who-we-are.webp";
-import Button from "../Button.astro";
 import Title from "../Title.astro";
 ---
 
@@ -20,6 +19,49 @@ import Title from "../Title.astro";
             </p>
             <a href="#">Saiba mais</a>
         </aside>
+    </div>
+    <div class="cards">
+        <div class="card">
+            <h3>Eventos</h3>
+            <p>
+                Promovemos (os melhores)
+                <strong>eventos de coleta de sangue em escolas</strong>
+                – afinal se é para formar uma nova geração de doadores, é lá que
+                precisamos estar –
+                <strong>faculdades e empresas.</strong>
+            </p>
+        </div>
+        <div class="card">
+            <h3>Conteúdo</h3>
+            <p>
+                Desenvolvemos
+                <strong>conteúdo digital</strong>
+                como vlogs com doadores, informes dos bancos de sangue, dicas de
+                como fazer uma boa doação e muito mais. Além disso, sempre
+                <strong>anunciamos quando alguém precisa de doação!</strong>
+            </p>
+        </div>
+        <div class="card">
+            <h3>Produtos</h3>
+            <p>
+                Criamos camisas, bonés, ecobags, broches, adesivos e o que mais
+                for preciso pra que
+                <strong>todo mundo possa vestir essa causa!</strong>
+            </p>
+        </div>
+        <div class="card">
+            <h3>Artigos</h3>
+            <p>
+                Produzimos
+                <strong>material científico</strong>
+                (e publicamos!) para entender a melhor forma de impulsionar o ecossistema
+                da doação de sangue. Queremos ajudar a
+                <strong>
+                    embasar políticas públicas efetivas e deixar nossos eventos
+                    cada vez melhores!
+                </strong>
+            </p>
+        </div>
     </div>
 </section>
 
@@ -68,6 +110,41 @@ import Title from "../Title.astro";
         flex: 1;
     }
 
+    .cards {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: stretch;
+        gap: 2rem;
+        flex-wrap: wrap;
+        margin-top: 1rem;
+    }
+
+    .card {
+        background-color: #ffffffe1;
+        backdrop-filter: blur(10px);
+        color: var(--hemo-color-text-secondary);
+        border: 1px solid var(--hemo-color-slate-200);
+        z-index: 1;
+        box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+        padding: 1rem;
+        border-radius: 0.5rem;
+        width: 100%;
+        max-width: 300px;
+        text-align: start;
+        transition: all 0.3s;
+        user-select: none;
+    }
+
+    .card:hover {
+        transform: translateY(-0.25rem);
+        box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2);
+    }
+
+    .card h3 {
+        margin-bottom: 1rem;
+    }
+
     @media (max-width: 768px) {
         .who-we-are {
             flex-direction: column;
@@ -78,6 +155,14 @@ import Title from "../Title.astro";
         }
 
         aside {
+            width: 100%;
+        }
+
+        .cards {
+            gap: 1rem;
+        }
+
+        .card {
             width: 100%;
         }
     }
