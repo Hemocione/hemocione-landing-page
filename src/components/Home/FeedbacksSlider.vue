@@ -108,22 +108,22 @@ function createItemClasses(item: Item) {
 }
 
 .feedback.light-blue {
-    color: var(--hemo-color-text-secondary);
+    color: #25282B;
     background-color: var(--hemo-color-midsummers_dream);
 }
 
 .feedback.blue {
-    color: var(--hemo-color-text-primary);
+    color: #f2f2f2;
     background-color: var(--hemo-color-cornflower_blue);
 }
 
 .feedback.red {
-    color: var(--hemo-color-background);
+    color: white;
     background-color: var(--hemo-color-primary);
 }
 
 .feedback.yellow {
-    color: var(--hemo-color-text-secondary);
+    color: #25282B;
     background-color: var(--hemo-color-princess_ivory);
 }
 

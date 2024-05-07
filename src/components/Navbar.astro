@@ -2,15 +2,15 @@
 import { config } from "../utils/environment";
 import barsSVG from "../assets/icons/bars.svg";
 import logoSVG from "../assets/navbar_logo.svg";
-import userSVG from "../assets/icons/user.svg";
-import Button from "./Button.astro";
+import logoWhiteSVG from "../assets/logo_white.svg";
 
 const currentPath = Astro.url.pathname;
 ---
 
 <header id="navbar">
     <nav class="container">
-        <img src={logoSVG.src} alt="Hemocione" />
+        <img id="logo" src={logoSVG.src} alt="Hemocione" />
+        <img id="logo-white" src={logoWhiteSVG.src} alt="Hemocione" />
         <input type="checkbox" id="hamburger-menu" hidden />
         <label for="hamburger-menu" class="hamburger-label">
             <img
@@ -53,9 +53,65 @@ const currentPath = Astro.url.pathname;
                     Entrar
                 </Button>
             </a> -->
+            <button id="toggle-dark-mode" class="theme-toggler">
+                <span class="moon"></span>
+                <span class="sun"></span>
+                <span class="ray"></span>
+                <span class="ray"></span>
+                <span class="ray"></span>
+                <span class="ray"></span>
+                <span class="ray"></span>
+                <span class="ray"></span>
+                <span class="ray"></span>
+                <span class="ray"></span>
+                <span class="ray"></span>
+            </button>
         </div>
     </nav>
 </header>
+
+<script>
+    const documentElement = document.documentElement;
+    const toggleDarkMode = document.getElementById("toggle-dark-mode");
+    const logo = document.getElementById("logo");
+    const logoWhite = document.getElementById("logo-white");
+
+    toggleDarkMode?.addEventListener("click", toggleTheme);
+
+    setTheme();
+
+    function toggleTheme() {
+        let theme = "light";
+
+        if (documentElement.classList.contains("dark")) {
+            theme = "light";
+        } else {
+            theme = "dark";
+        }
+
+        localStorage.setItem("theme", theme);
+
+        setTheme();
+    }
+
+    function setTheme() {
+        const theme = localStorage.getItem("theme");
+
+        if (theme === "dark") {
+            documentElement.classList.add("dark");
+            toggleDarkMode?.classList.add("dark");
+            logo?.classList.add("hidden");
+            logoWhite?.classList.remove("hidden");
+
+            return;
+        }
+
+        documentElement.classList.remove("dark");
+        toggleDarkMode?.classList.remove("dark");
+        logo?.classList.remove("hidden");
+        logoWhite?.classList.add("hidden");
+    }
+</script>
 
 <style>
     header {
@@ -132,6 +188,96 @@ const currentPath = Astro.url.pathname;
     #hamburger-menu:checked ~ .hamburger-label .overlay {
         visibility: visible;
         opacity: 1;
+    }
+
+    .theme-toggler {
+        --color-secondary: var(--hemo-color-warn);
+
+        all: unset;
+        position: relative;
+        height: 18px;
+        width: 18px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.3s;
+    }
+
+    .theme-toggler.dark {
+        --color-secondary: var(--hemo-color-mexican_chile);
+    }
+
+    .theme-toggler.dark .ray {
+        opacity: 0;
+    }
+
+    .theme-toggler.dark .moon {
+        transform: scale(1) translate(25%, -25%);
+    }
+
+    .theme-toggler .moon,
+    .theme-toggler .sun {
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        background: var(--color-secondary);
+        border: 2px solid var(--hemo-color-background);
+    }
+
+    .theme-toggler .moon {
+        background: var(--hemo-color-background);
+        border-radius: 50%;
+        transform: scale(0) translate(25%, -25%);
+        z-index: 9;
+        transition:
+            0.4s transform,
+            0.2s background;
+        transform-origin: right;
+    }
+
+    .theme-toggler:hover {
+        transform: scale(1.1);
+    }
+
+    .theme-toggler .ray {
+        width: 2px;
+        background: var(--color-secondary);
+        display: block;
+        height: 121%;
+        position: absolute;
+        z-index: -1;
+        transition: 0.3s;
+    }
+    .theme-toggler .ray:nth-child(1) {
+        transform: rotate(30deg);
+    }
+    .theme-toggler .ray:nth-child(2) {
+        transform: rotate(60deg);
+    }
+    .theme-toggler .ray:nth-child(3) {
+        transform: rotate(90deg);
+    }
+    .theme-toggler .ray:nth-child(4) {
+        transform: rotate(120deg);
+    }
+    .theme-toggler .ray:nth-child(5) {
+        transform: rotate(150deg);
+    }
+    .theme-toggler .ray:nth-child(6) {
+        transform: rotate(180deg);
+    }
+    .theme-toggler .ray:nth-child(7) {
+        transform: rotate(210deg);
+    }
+    .theme-toggler .ray:nth-child(8) {
+        transform: rotate(240deg);
+    }
+
+    .hidden {
+        display: none;
     }
 
     @media screen and (max-width: 768px) {

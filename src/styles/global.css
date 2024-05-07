@@ -29,9 +29,14 @@
 }
 
 .dark {
-    --hemo-color-secondary: #25282B;
+    --hemo-color-text-primary: #1f2123;
+    --hemo-color-secondary: #2d3033;
+    --hemo-color-secondary-dark: #1f2123;
     --hemo-color-text-secondary: #f2f2f2;
     --hemo-color-text-secondary-opaque: rgba(242, 242, 242, 0.2);
+    --hemo-color-background: #25282B;
+    
+    --hemo-color-slate-300: #303438;
 
     --hemo-color-blue-800: #f2f2f2;
 }
@@ -58,6 +63,7 @@ body {
     font-family: "Lato", monospace, sans-serif;
     margin: 0;
     line-height: 1;
+    transition: background-color 0.2s;
 }
 
 a {
