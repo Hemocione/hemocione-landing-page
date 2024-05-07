@@ -21,6 +21,25 @@ const { title } = Astro.props;
 		<meta name="generator" content={Astro.generator} />
 		<title>Hemocione - {title}</title>
 		<ViewTransitions />
+
+		<!-- Google tag (gtag.js) -->
+		<script
+			is:inline
+			type="text/partytown"
+			src="https://www.googletagmanager.com/gtag/js?id=G-75J9MM7SHP"
+		></script>
+		<script is:inline type="text/partytown">
+			// @ts-expect-error - It's ok to use dataLayer here
+			window.dataLayer = window.dataLayer || [];
+			function gtag() {
+				// @ts-expect-error - DataLayer is defined
+				dataLayer.push(arguments);
+			}
+			// @ts-expect-error - Gtag is defined with arguments
+			gtag("js", new Date());
+			// @ts-expect-error - Gtag is defined with arguments
+			gtag("config", "G-75J9MM7SHP");
+		</script>
 	</head>
 	<body>
 		<a href="#main" class="skip-to-main-content">
