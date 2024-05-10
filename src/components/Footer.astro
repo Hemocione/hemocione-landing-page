@@ -7,192 +7,194 @@ import logoWhiteSVG from "../assets/logo_white.svg";
 import { config } from "../utils/environment";
 
 const SOCIAL_LINKS = [
-    {
-        alt: "Instagram",
-        src: "https://www.instagram.com/hemocione",
-        color: "#B2493A",
-        image: instagramSVG.src,
-    },
-    {
-        alt: "TikTok",
-        src: "https://www.tiktok.com/@hemocione",
-        color: "#B2CFD8",
-        image: tiktokSVG.src,
-    },
-    {
-        alt: "X",
-        src: "https://www.x.com/hemocione",
-        color: "#FAEAD4",
-        image: xSVG.src,
-    },
-    {
-        alt: "LinkedIn",
-        src: "https://www.linkedin.com/company/hemocione",
-        color: "#6E91C7",
-        image: linkedinSVG.src,
-    },
+  {
+    alt: "Instagram",
+    src: "https://www.instagram.com/hemocione",
+    color: "#B2493A",
+    image: instagramSVG.src,
+  },
+  {
+    alt: "TikTok",
+    src: "https://www.tiktok.com/@hemocione",
+    color: "#B2CFD8",
+    image: tiktokSVG.src,
+  },
+  {
+    alt: "X",
+    src: "https://www.x.com/hemocione",
+    color: "#FAEAD4",
+    image: xSVG.src,
+  },
+  {
+    alt: "LinkedIn",
+    src: "https://www.linkedin.com/company/hemocione",
+    color: "#6E91C7",
+    image: linkedinSVG.src,
+  },
 ];
 ---
 
 <footer>
-    <div class="container content">
-        <section>
-            <a href="#navbar">
-                <img src={logoWhiteSVG.src} class="logo" alt="Hemocione" />
-            </a>
-        </section>
-        <section>
-            <h3>Hemocione</h3>
-            <ol>
-                <li><a href="/quem-somos">Quem somos</a></li>
-                <li><a href="#">Perguntas frequentes</a></li>
-            </ol>
-        </section>
-        <section>
-            <h3>Serviços</h3>
-            <ol>
-                <li>
-                    <a href={config.hemocioneEvents} target="_blank">
-                        Eventos
-                    </a>
-                </li>
-                <li><a href="#">Copa Hemocione</a></li>
-                <li><a href="#">Faça seu evento</a></li>
-                <!-- <li>
+  <div class="container content">
+    <section>
+      <a href="#navbar">
+        <img src={logoWhiteSVG.src} class="logo" alt="Hemocione" />
+      </a>
+    </section>
+    <section>
+      <h3>Hemocione</h3>
+      <ol>
+        <li><a href="/quem-somos">Quem somos</a></li>
+        <li><a href="#">Perguntas frequentes</a></li>
+      </ol>
+    </section>
+    <section>
+      <h3>Serviços</h3>
+      <ol>
+        <li>
+          <a href={config.hemocioneEvents} target="_blank"> Eventos </a>
+        </li>
+        <li>
+          <a href={config.hemocioneCompetitions} target="_blank"
+            >Copas Hemocione</a
+          >
+        </li>
+        <!-- <li><a href="#">Faça seu evento</a></li> TODO: add flow to faça seu evento -->
+        <!-- <li>
                     <a href={config.hemocioneApp} target="_blank">
                         Portal do doador
                     </a>
                 </li> -->
-            </ol>
-        </section>
-        <section>
-            <h3>Colabore</h3>
-            <ol>
-                <li>
-                    <a href={config.hemocioneDonation} target="_blank">
-                        Irmãos de sangue
-                    </a>
-                </li>
-                <li>
-                    <a href={config.hemocioneApp} target="_blank">Produtos</a>
-                </li>
-            </ol>
-        </section>
-        <section class="social-links-container">
-            <h3>Acompanhe nossas redes</h3>
-            <div class="social-links">
-                {
-                    SOCIAL_LINKS.map((social) => (
-                        <a
-                            href={social.src}
-                            style={{ backgroundColor: social.color }}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            <img src={social.image} alt={social.alt} />
-                        </a>
-                    ))
-                }
-            </div>
-            <span>+55 21 99159 6646</span>
-            <span>contato@hemocione.com.br</span>
-        </section>
-    </div>
+      </ol>
+    </section>
+    <section>
+      <h3>Colabore</h3>
+      <ol>
+        <li>
+          <a href={config.hemocioneDonation} target="_blank">
+            Irmãos de sangue
+          </a>
+        </li>
+        <li>
+          <a href={config.hemocioneStore} target="_blank">Produtos</a>
+        </li>
+      </ol>
+    </section>
+    <section class="social-links-container">
+      <h3>Acompanhe nossas redes</h3>
+      <div class="social-links">
+        {
+          SOCIAL_LINKS.map((social) => (
+            <a
+              href={social.src}
+              style={{ backgroundColor: social.color }}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img src={social.image} alt={social.alt} />
+            </a>
+          ))
+        }
+      </div>
+      <span>+55 21 99159 6646</span>
+      <span>contato@hemocione.com.br</span>
+    </section>
+  </div>
 
-    <span>Feito com 💖🩸por Hemocione | © 2024</span>
+  <span>Feito com 💖 por Hemocione 🩸 | © 2024</span>
 </footer>
 
 <style>
-    footer {
-        background-color: #262626;
-        color: #ffffff;
-        padding: 4rem 0;
-        text-align: center;
-    }
+  footer {
+    background-color: #262626;
+    color: #ffffff;
+    padding: 4rem 0;
+    text-align: center;
+  }
 
+  .content {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+  }
+
+  section {
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+  }
+
+  section h3 {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+
+  ol {
+    list-style: none;
+    padding: 0;
+  }
+
+  ol li {
+    margin-bottom: 1rem;
+  }
+
+  ol li:hover {
+    text-decoration: underline;
+  }
+
+  .social-links-container {
+    gap: 0.5rem;
+  }
+
+  .social-links {
+    display: flex;
+    justify-content: flex-start;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    transition: transform 0.2s;
+  }
+
+  .social-links a:hover {
+    transform: scale(1.05);
+  }
+
+  .social-links a img {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+
+  @media (max-width: 768px) {
     .content {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 2rem;
+      flex-direction: column;
+      gap: 2rem;
     }
 
     section {
-        display: flex;
-        flex-direction: column;
-        text-align: start;
-    }
-
-    section h3 {
-        margin: 0;
-        font-size: 1rem;
-        font-weight: 700;
-        margin-bottom: 1rem;
-    }
-
-    ol {
-        list-style: none;
-        padding: 0;
-    }
-
-    ol li {
-        margin-bottom: 1rem;
-    }
-
-    ol li:hover {
-        text-decoration: underline;
-    }
-
-    .social-links-container {
-        gap: 0.5rem;
+      text-align: center;
     }
 
     .social-links {
-        display: flex;
-        justify-content: flex-start;
-        gap: 1rem;
-        margin-bottom: 1rem;
+      justify-content: center;
     }
 
-    .social-links a {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 2.5rem;
-        height: 2.5rem;
-        border-radius: 50%;
-        transition: transform 0.2s;
+    .logo {
+      max-width: 10rem;
+      margin: 0 auto;
     }
 
-    .social-links a:hover {
-        transform: scale(1.05);
+    ol {
+      margin-bottom: 0;
     }
-
-    .social-links a img {
-        width: 1.25rem;
-        height: 1.25rem;
-    }
-
-    @media (max-width: 768px) {
-        .content {
-            flex-direction: column;
-            gap: 2rem;
-        }
-
-        section {
-            text-align: center;
-        }
-
-        .social-links {
-            justify-content: center;
-        }
-
-        .logo {
-            max-width: 10rem;
-            margin: 0 auto;
-        }
-
-        ol {
-            margin-bottom: 0;
-        }
-    }
+  }
 </style>

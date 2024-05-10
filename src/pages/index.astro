@@ -13,33 +13,33 @@ import FAQ from "../components/Home/FAQ.astro";
 import BecomeVolunteer from "../components/Home/BecomeVolunteer.astro";
 ---
 
-<Layout title="Lading Page">
-	<main id="main" transition:animate="fade">
-		<Hero />
-		<WhoWeAre />
-		<OurImpact />
-		<CallToAction />
-		<HowWorks />
-		<NextEvents />
-		<Feedbacks />
-		<!-- <Partners /> -->
-		<br />
-		<CallToActionPartners />
-		<FAQ />
-		<BecomeVolunteer />
-	</main>
+<Layout title="">
+  <main id="main" transition:animate="fade">
+    <Hero />
+    <WhoWeAre />
+    <OurImpact />
+    <CallToAction />
+    <HowWorks />
+    <NextEvents />
+    <Feedbacks />
+    <!-- <Partners /> -->
+    <br />
+    <CallToActionPartners />
+    <FAQ />
+    <BecomeVolunteer />
+  </main>
 </Layout>
 
 <style>
-	#main {
-		display: flex;
-		flex-direction: column;
-		gap: 6rem;
-	}
+  #main {
+    display: flex;
+    flex-direction: column;
+    gap: 6rem;
+  }
 
-	@media (max-width: 768px) {
-		#main {
-			gap: 3rem;
-		}
-	}
+  @media (max-width: 768px) {
+    #main {
+      gap: 3rem;
+    }
+  }
 </style>

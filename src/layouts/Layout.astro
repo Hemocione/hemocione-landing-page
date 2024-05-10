@@ -5,100 +5,100 @@ import Footer from "../components/Footer.astro";
 import "../styles/global.css";
 
 interface Props {
-	title: string;
+  title: string;
 }
 
 const { title } = Astro.props;
+
+const pageTitle = title ? `Hemocione - ${title}` : "Hemocione";
 ---
 
-<!doctype html>
 <html lang="pt-BR">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Hemocione - {title}</title>
-		<ViewTransitions />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{pageTitle}</title>
+    <ViewTransitions />
 
-		<!-- Google tag (gtag.js) -->
-		<script
-			is:inline
-			type="text/partytown"
-			src="https://www.googletagmanager.com/gtag/js?id=G-75J9MM7SHP"
-		></script>
-		<script is:inline type="text/partytown">
-			// @ts-expect-error - It's ok to use dataLayer here
-			window.dataLayer = window.dataLayer || [];
-			function gtag() {
-				// @ts-expect-error - DataLayer is defined
-				dataLayer.push(arguments);
-			}
-			// @ts-expect-error - Gtag is defined with arguments
-			gtag("js", new Date());
-			// @ts-expect-error - Gtag is defined with arguments
-			gtag("config", "G-75J9MM7SHP");
-		</script>
+    <!-- Google tag (gtag.js) -->
+    <script
+      is:inline
+      type="text/partytown"
+      src="https://www.googletagmanager.com/gtag/js?id=G-75J9MM7SHP"></script>
+    <script is:inline type="text/partytown">
+      // @ts-expect-error - It's ok to use dataLayer here
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        // @ts-expect-error - DataLayer is defined
+        dataLayer.push(arguments);
+      }
+      // @ts-expect-error - Gtag is defined with arguments
+      gtag("js", new Date());
+      // @ts-expect-error - Gtag is defined with arguments
+      gtag("config", "G-75J9MM7SHP");
+    </script>
 
-		<script is:inline>
-			const theme = (() => {
-				if (
-					typeof localStorage !== "undefined" &&
-					localStorage.getItem("theme")
-				) {
-					return localStorage.getItem("theme");
-				}
-				if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-					return "dark";
-				}
-				return "light";
-			})();
+    <script is:inline>
+      const theme = (() => {
+        if (
+          typeof localStorage !== "undefined" &&
+          localStorage.getItem("theme")
+        ) {
+          return localStorage.getItem("theme");
+        }
+        if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+          return "dark";
+        }
+        return "light";
+      })();
 
-			if (theme === "light") {
-				document.documentElement.classList.remove("dark");
-			} else {
-				document.documentElement.classList.add("dark");
-			}
-			window.localStorage.setItem("theme", theme ?? "light");
-		</script>
-	</head>
-	<body>
-		<a href="#main" class="skip-to-main-content">
-			Ir para o conteúdo principal
-		</a>
-		<Navbar />
-		<slot />
-		<Footer />
-		<style>
-			body {
-				display: flex;
-				flex-direction: column;
-			}
+      if (theme === "light") {
+        document.documentElement.classList.remove("dark");
+      } else {
+        document.documentElement.classList.add("dark");
+      }
+      window.localStorage.setItem("theme", theme ?? "light");
+    </script>
+  </head>
+  <body>
+    <a href="#main" class="skip-to-main-content">
+      Ir para o conteúdo principal
+    </a>
+    <Navbar />
+    <slot />
+    <Footer />
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+      }
 
-			.skip-to-main-content {
-				position: absolute;
-				left: -9999px;
-				z-index: 999;
-				padding: 1em;
-				background-color: black;
-				color: white;
-				opacity: 0;
-			}
-			.skip-to-main-content:focus {
-				left: 50%;
-				transform: translateX(-50%);
-				opacity: 1;
-			}
-		</style>
+      .skip-to-main-content {
+        position: absolute;
+        left: -9999px;
+        z-index: 999;
+        padding: 1em;
+        background-color: black;
+        color: white;
+        opacity: 0;
+      }
+      .skip-to-main-content:focus {
+        left: 50%;
+        transform: translateX(-50%);
+        opacity: 1;
+      }
+    </style>
 
-		<style is:global>
-			.container {
-				width: 100%;
-				max-width: 1200px;
-				margin: 0 auto;
-				padding: 0 1rem;
-			}
-		</style>
-	</body>
+    <style is:global>
+      .container {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1rem;
+      }
+    </style>
+  </body>
 </html>
