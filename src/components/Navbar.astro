@@ -1,6 +1,7 @@
 ---
 import { config } from "../utils/environment";
 import barsSVG from "../assets/icons/bars.svg";
+import barsDarkSVG from "../assets/icons/bars-dark.svg";
 import logoSVG from "../assets/navbar_logo.svg";
 import logoWhiteSVG from "../assets/logo_white.svg";
 
@@ -14,7 +15,16 @@ const currentPath = Astro.url.pathname;
     <input type="checkbox" id="hamburger-menu" hidden />
     <label for="hamburger-menu" class="hamburger-label">
       <img
+        id="hamburger-menu-light"
         src={barsSVG.src}
+        class="hamburger-menu"
+        width="25"
+        height="25"
+        alt="Menu de navegação do site"
+      />
+      <img
+        id="hamburger-menu-dark"
+        src={barsDarkSVG.src}
         class="hamburger-menu"
         width="25"
         height="25"
@@ -72,6 +82,8 @@ const currentPath = Astro.url.pathname;
   const toggleDarkMode = document.getElementById("toggle-dark-mode");
   const logo = document.getElementById("logo");
   const logoWhite = document.getElementById("logo-white");
+  const hambugerMenuLight = document.getElementById("hamburger-menu-light");
+  const hambugerMenuDark = document.getElementById("hamburger-menu-dark");
 
   toggleDarkMode?.addEventListener("click", toggleTheme);
 
@@ -98,7 +110,9 @@ const currentPath = Astro.url.pathname;
       documentElement.classList.add("dark");
       toggleDarkMode?.classList.add("dark");
       logo?.classList.add("hidden");
+      hambugerMenuLight?.classList.add("hidden");
       logoWhite?.classList.remove("hidden");
+      hambugerMenuDark?.classList.remove("hidden");
 
       return;
     }
@@ -106,7 +120,9 @@ const currentPath = Astro.url.pathname;
     documentElement.classList.remove("dark");
     toggleDarkMode?.classList.remove("dark");
     logo?.classList.remove("hidden");
+    hambugerMenuLight?.classList.remove("hidden");
     logoWhite?.classList.add("hidden");
+    hambugerMenuDark?.classList.add("hidden");
   }
 </script>
 
@@ -274,7 +290,7 @@ const currentPath = Astro.url.pathname;
   }
 
   .hidden {
-    display: none;
+    display: none !important;
   }
 
   @media screen and (max-width: 768px) {
