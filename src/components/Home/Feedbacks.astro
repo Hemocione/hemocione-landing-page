@@ -16,110 +16,111 @@ import FeedbackImage7 from "../../assets/feedbacks/1714844160.webp";
 import FeedbackImage8 from "../../assets/feedbacks/1714844157.webp";
 
 const ITEMS: Item[] = [
-    {
-        kind: "image",
-        size: "large",
-        src: FeedbackImage1.src,
-    },
-    {
-        kind: "image",
-        size: "small",
-        src: FeedbackImage2.src,
-    },
-    {
-        kind: "feedback",
-        size: "default",
-        text: "O motivo de eu doar sangue toda vez é pela sensação que sinto após doar. Cada vez que você doa sangue você está ajudando 4 pessoas diferentes e contribuindo para a comunidade!",
-        authorName: "Maria Cecília",
-        authorSrc: MariaCecilia.src,
-        eventName: "A+",
-    },
-    {
-        kind: "image",
-        size: "default",
-        src: FeedbackImage3.src,
-    },
-    {
-        kind: "image",
-        size: "large",
-        src: FeedbackImage4.src,
-    },
-    {
-        kind: "feedback",
-        size: "small",
-        text: "Eu sempre tive interesse em doar sangue, mas nunca tive a oportunidade, através de uma incrível campanha realizada pelo Hemocione na minha escola, eu finalmente doei sangue pela primeira vez.",
-        authorName: "João Arthur",
-        authorSrc: JoaoArthur.src,
-        eventName: "A+",
-    },
-    {
-        kind: "feedback",
-        size: "large",
-        text: "É um momento muito bonito e a sensação é realmente incomparável, especialmente quando você recebe aquela mensagem dizendo que você acabou de salvar uma vida!",
-        authorName: "Paulo Lacê",
-        authorSrc: PauloLace.src,
-        eventName: "O+",
-    },
-    {
-        kind: "image",
-        size: "default",
-        src: FeedbackImage5.src,
-    },
-    {
-        kind: "image",
-        size: "large",
-        src: FeedbackImage6.src,
-    },
-    {
-        kind: "feedback",
-        size: "large",
-        text: "É um momento tão rápido e que significa tanto pra saúde de outras pessoas. Eu sempre tive vontade mas o que me levou a doar sangue de verdade foi a mobilização proporcionada pelo Hemocione.",
-        authorName: "Mariana Molon",
-        authorSrc: MarianaMolon.src,
-        eventName: "A+",
-    },
-    {
-        kind: "image",
-        size: "large",
-        src: FeedbackImage7.src,
-    },
-    {
-        kind: "image",
-        size: "small",
-        src: FeedbackImage8.src,
-    },
+  {
+    kind: "image",
+    size: "large",
+    src: FeedbackImage1.src,
+  },
+  {
+    kind: "image",
+    size: "small",
+    src: FeedbackImage2.src,
+  },
+  {
+    kind: "feedback",
+    size: "default",
+    text: "O motivo de eu doar sangue toda vez é pela sensação que sinto após doar. Cada vez que você doa sangue você está ajudando 4 pessoas diferentes e contribuindo para a comunidade!",
+    authorName: "Maria Cecília",
+    authorSrc: MariaCecilia.src,
+    eventName: "A+",
+  },
+  {
+    kind: "image",
+    size: "default",
+    src: FeedbackImage3.src,
+  },
+  {
+    kind: "image",
+    size: "large",
+    src: FeedbackImage4.src,
+  },
+  {
+    kind: "feedback",
+    size: "small",
+    text: "Eu sempre tive interesse em doar sangue, mas nunca tive a oportunidade, através de uma incrível campanha realizada pelo Hemocione na minha escola, eu finalmente doei sangue pela primeira vez.",
+    authorName: "João Arthur",
+    authorSrc: JoaoArthur.src,
+    eventName: "A+",
+  },
+  {
+    kind: "feedback",
+    size: "large",
+    text: "É um momento muito bonito e a sensação é realmente incomparável, especialmente quando você recebe aquela mensagem dizendo que você acabou de salvar uma vida!",
+    authorName: "Paulo Lacê",
+    authorSrc: PauloLace.src,
+    eventName: "O+",
+  },
+  {
+    kind: "image",
+    size: "default",
+    src: FeedbackImage5.src,
+  },
+  {
+    kind: "image",
+    size: "large",
+    src: FeedbackImage6.src,
+  },
+  {
+    kind: "feedback",
+    size: "large",
+    text: "É um momento tão rápido e que significa tanto pra saúde de outras pessoas. Eu sempre tive vontade mas o que me levou a doar sangue de verdade foi a mobilização proporcionada pelo Hemocione.",
+    authorName: "Mariana Molon",
+    authorSrc: MarianaMolon.src,
+    eventName: "A+",
+  },
+  {
+    kind: "image",
+    size: "large",
+    src: FeedbackImage7.src,
+  },
+  {
+    kind: "image",
+    size: "small",
+    src: FeedbackImage8.src,
+  },
 ];
 ---
 
 <section>
-    <div class="container title">
-        <Title subtitle="Eu já hemocionei e você?">
-            Confira quem já hemocionou com a gente
-        </Title>
-    </div>
-    <br />
-    <br />
-    <FeedbacksSlider client:only items={ITEMS} duration={100} />
-    <br />
-    <br />
-    <FeedbacksSlider
-        client:only
-        items={ITEMS}
-        duration={100}
-        direction="reverse"
-    />
+  <div class="container title">
+    <Title subtitle="Eu já hemocionei e você?">
+      Confira quem já hemocionou com a gente
+    </Title>
+  </div>
+  <br />
+  <br />
+  <FeedbacksSlider client:only items={ITEMS} duration={100} />
+  <br />
+  <br />
+  <FeedbacksSlider
+    client:only
+    items={ITEMS}
+    duration={100}
+    direction="reverse"
+  />
 </section>
 
 <style>
-    section {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 0.25rem;
-    }
+  section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25rem;
+    padding: 3rem 0;
+  }
 
-    .title {
-        text-align: center;
-    }
+  .title {
+    text-align: center;
+  }
 </style>

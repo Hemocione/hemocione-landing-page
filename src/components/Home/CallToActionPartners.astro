@@ -3,50 +3,58 @@ import Button from "../Button.astro";
 ---
 
 <section>
-    <div class="container">
-        <aside>
-            <h2>Seja um parceiro Hemocione</h2>
-            <p>Colabore com o Hemocione e ajude a salvar ainda mais vidas</p>
-        </aside>
-        <aside>
-            <Button type="secondary">Seja um parceiro</Button>
-        </aside>
-    </div>
-</section>
+  <div class="container">
+    <aside>
+      <h2>Seja um parceiro Hemocione</h2>
+      <p>
+        Juntos, podemos salvar mais vidas. Faça sua parte realizando um evento
+        ou apoiando o projeto.
+      </p>
+    </aside>
+    <aside>
+      <a
+        href="mailto:sejaparceiro@hemocione.com.br?subject=Quero me tornar Parceiro do Hemocione"
+        target="_blank"
+      >
+        <Button type="secondary">Seja Parceiro</Button>
+      </a>
+    </aside>
+  </div>
 
-<style>
+  <style>
     section {
-        background-color: var(--hemo-color-primary);
-        color: var(--hemo-color-text-primary);
+      background-color: var(--hemo-color-primary);
+      color: var(--hemo-color-text-primary);
     }
 
     .container {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 2rem;
-        padding: 2rem 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      padding: 2rem 0;
     }
 
     h2 {
-        margin: 0 0 1rem 0;
+      margin: 0 0 1rem 0;
     }
 
     aside:first-child {
-        flex: 1;
+      flex: 1;
     }
 
     @media (max-width: 768px) {
-        .container {
-            flex-direction: column;
-            padding: 2rem 1rem;
-        }
+      .container {
+        flex-direction: column;
+        padding: 2rem 1rem;
+      }
 
-        aside {
-            text-align: center;
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-        }
+      aside {
+        text-align: center;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+      }
     }
-</style>
+  </style>
+</section>

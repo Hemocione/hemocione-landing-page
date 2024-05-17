@@ -8,322 +8,325 @@ const currentPath = Astro.url.pathname;
 ---
 
 <header id="navbar">
-    <nav class="container">
-        <img id="logo" src={logoSVG.src} alt="Hemocione" />
-        <img id="logo-white" src={logoWhiteSVG.src} alt="Hemocione" />
-        <input type="checkbox" id="hamburger-menu" hidden />
-        <label for="hamburger-menu" class="hamburger-label">
-            <img
-                src={barsSVG.src}
-                class="hamburger-menu"
-                width="25"
-                height="25"
-                alt="Menu de navegação do site"
-            />
-            <div class="overlay"></div>
-        </label>
-        <div class="right-side">
-            <ol class="nav-list">
-                <li class={currentPath === "/" ? "active" : ""}>
-                    <a href="/">Home</a>
-                </li>
-                <!-- <li class={currentPath === "/quem-somos" ? "active" : ""}>
-                    <a href="/quem-somos">Quem somos</a>
-                </li> -->
-                <li>
-                    <a href={config.hemocioneEvents} target="_blank">Eventos</a>
-                </li>
-                <li>
-                    <a href={config.hemocioneDonation} target="_blank">
-                        Irmãos de Sangue
-                    </a>
-                </li>
-                <li>
-                    <a href={config.hemocioneStore} target="_blank">
-                        Produtos
-                    </a>
-                </li>
-                <!-- <li class={currentPath === "/competicoes" ? "active" : ""}>
-                    <a href="/competicoes">Competições</a>
-                </li> -->
-            </ol>
-            <!-- <a class="signin-button-anchor" href={config.hemocioneApp}>
+  <nav class="container">
+    <img id="logo" src={logoSVG.src} alt="Hemocione" />
+    <img id="logo-white" src={logoWhiteSVG.src} alt="Hemocione" />
+    <input type="checkbox" id="hamburger-menu" hidden />
+    <label for="hamburger-menu" class="hamburger-label">
+      <img
+        src={barsSVG.src}
+        class="hamburger-menu"
+        width="25"
+        height="25"
+        alt="Menu de navegação do site"
+      />
+      <div class="overlay"></div>
+    </label>
+    <div class="right-side">
+      <ol class="nav-list">
+        <li class={currentPath === "/" ? "active" : ""}>
+          <a href="/">Home</a>
+        </li>
+        <li>
+          <a href={config.hemocioneEvents} target="_blank">Eventos</a>
+        </li>
+        <li>
+          <a href={config.hemocioneDonation} target="_blank">
+            Irmãos de Sangue
+          </a>
+        </li>
+        <li>
+          <a href={config.hemocioneCompetitions} target="_blank"
+            >Copas Hemocione</a
+          >
+        </li>
+        <li>
+          <a href={config.hemocioneStore} target="_blank"> Vestir a Camisa </a>
+        </li>
+      </ol>
+      <!-- <a class="signin-button-anchor" href={config.hemocioneApp}>
                 <Button size="small" className="signin-button">
                     <img src={userSVG.src} alt="Ícone de usuário" />
                     Entrar
                 </Button>
             </a> -->
-            <button id="toggle-dark-mode" class="theme-toggler">
-                <span class="moon"></span>
-                <span class="sun"></span>
-                <span class="ray"></span>
-                <span class="ray"></span>
-                <span class="ray"></span>
-                <span class="ray"></span>
-                <span class="ray"></span>
-                <span class="ray"></span>
-                <span class="ray"></span>
-                <span class="ray"></span>
-                <span class="ray"></span>
-            </button>
-        </div>
-    </nav>
+      <button id="toggle-dark-mode" class="theme-toggler show-only-big">
+        <span class="moon"></span>
+        <span class="sun"></span>
+        <span class="ray"></span>
+        <span class="ray"></span>
+        <span class="ray"></span>
+        <span class="ray"></span>
+        <span class="ray"></span>
+        <span class="ray"></span>
+        <span class="ray"></span>
+        <span class="ray"></span>
+        <span class="ray"></span>
+      </button>
+    </div>
+  </nav>
 </header>
 
 <script>
-    const documentElement = document.documentElement;
-    const toggleDarkMode = document.getElementById("toggle-dark-mode");
-    const logo = document.getElementById("logo");
-    const logoWhite = document.getElementById("logo-white");
+  const documentElement = document.documentElement;
+  const toggleDarkMode = document.getElementById("toggle-dark-mode");
+  const logo = document.getElementById("logo");
+  const logoWhite = document.getElementById("logo-white");
 
-    toggleDarkMode?.addEventListener("click", toggleTheme);
+  toggleDarkMode?.addEventListener("click", toggleTheme);
+
+  setTheme();
+
+  function toggleTheme() {
+    let theme = "light";
+
+    if (documentElement.classList.contains("dark")) {
+      theme = "light";
+    } else {
+      theme = "dark";
+    }
+
+    localStorage.setItem("theme", theme);
 
     setTheme();
+  }
 
-    function toggleTheme() {
-        let theme = "light";
+  function setTheme() {
+    const theme = localStorage.getItem("theme");
 
-        if (documentElement.classList.contains("dark")) {
-            theme = "light";
-        } else {
-            theme = "dark";
-        }
+    if (theme === "dark") {
+      documentElement.classList.add("dark");
+      toggleDarkMode?.classList.add("dark");
+      logo?.classList.add("hidden");
+      logoWhite?.classList.remove("hidden");
 
-        localStorage.setItem("theme", theme);
-
-        setTheme();
+      return;
     }
 
-    function setTheme() {
-        const theme = localStorage.getItem("theme");
-
-        if (theme === "dark") {
-            documentElement.classList.add("dark");
-            toggleDarkMode?.classList.add("dark");
-            logo?.classList.add("hidden");
-            logoWhite?.classList.remove("hidden");
-
-            return;
-        }
-
-        documentElement.classList.remove("dark");
-        toggleDarkMode?.classList.remove("dark");
-        logo?.classList.remove("hidden");
-        logoWhite?.classList.add("hidden");
-    }
+    documentElement.classList.remove("dark");
+    toggleDarkMode?.classList.remove("dark");
+    logo?.classList.remove("hidden");
+    logoWhite?.classList.add("hidden");
+  }
 </script>
 
 <style>
-    header {
-        height: var(--navbar-height);
-        box-shadow: 0 0 4px var(--hemo-color-text-secondary-opaque);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
+  header {
+    height: var(--navbar-height);
+    box-shadow: 0 0 4px var(--hemo-color-text-secondary-opaque);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
-    nav {
-        position: relative;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        z-index: 5;
-    }
+  nav {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 5;
+  }
 
+  .right-side {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    z-index: 2;
+  }
+
+  nav li a:hover,
+  nav li a:focus {
+    color: var(--hemo-color-primary);
+  }
+
+  .nav-list {
+    list-style-type: none;
+    display: inline-flex;
+    gap: 2rem;
+  }
+
+  .nav-list .active {
+    color: var(--hemo-color-primary);
+    border-bottom: 2px solid var(--hemo-color-primary);
+  }
+
+  .nav-list li {
+    display: flex;
+    align-items: center;
+  }
+
+  .hamburger-menu {
+    display: none;
+  }
+  .overlay {
+    visibility: hidden;
+    opacity: 0;
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100dvh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+
+    transition:
+      visibility 0.3s,
+      opacity 0.3s;
+  }
+
+  #hamburger-menu:checked ~ .right-side {
+    right: 0;
+    visibility: visible;
+  }
+  #hamburger-menu:checked ~ .right-side li a:hover {
+    color: var(--hemo-color-text-primary);
+  }
+
+  #hamburger-menu:checked ~ .hamburger-label .overlay {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .theme-toggler {
+    --color-secondary: var(--hemo-color-warn);
+
+    all: unset;
+    position: relative;
+    height: 18px;
+    width: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s;
+  }
+
+  .theme-toggler.dark {
+    --color-secondary: var(--hemo-color-mexican_chile);
+  }
+
+  .theme-toggler.dark .ray {
+    opacity: 0;
+  }
+
+  .theme-toggler.dark .moon {
+    transform: scale(1) translate(25%, -25%);
+  }
+
+  .theme-toggler .moon,
+  .theme-toggler .sun {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: var(--color-secondary);
+    border: 2px solid var(--hemo-color-background);
+  }
+
+  .theme-toggler .moon {
+    background: var(--hemo-color-background);
+    border-radius: 50%;
+    transform: scale(0) translate(25%, -25%);
+    z-index: 9;
+    transition:
+      0.4s transform,
+      0.2s background;
+    transform-origin: right;
+  }
+
+  .theme-toggler:hover {
+    transform: scale(1.1);
+  }
+
+  .theme-toggler .ray {
+    width: 2px;
+    background: var(--color-secondary);
+    display: block;
+    height: 121%;
+    position: absolute;
+    z-index: -1;
+    transition: 0.3s;
+  }
+  .theme-toggler .ray:nth-child(1) {
+    transform: rotate(30deg);
+  }
+  .theme-toggler .ray:nth-child(2) {
+    transform: rotate(60deg);
+  }
+  .theme-toggler .ray:nth-child(3) {
+    transform: rotate(90deg);
+  }
+  .theme-toggler .ray:nth-child(4) {
+    transform: rotate(120deg);
+  }
+  .theme-toggler .ray:nth-child(5) {
+    transform: rotate(150deg);
+  }
+  .theme-toggler .ray:nth-child(6) {
+    transform: rotate(180deg);
+  }
+  .theme-toggler .ray:nth-child(7) {
+    transform: rotate(210deg);
+  }
+  .theme-toggler .ray:nth-child(8) {
+    transform: rotate(240deg);
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  @media screen and (max-width: 768px) {
     .right-side {
-        display: flex;
-        align-items: center;
-        gap: 2rem;
-        z-index: 2;
-    }
+      visibility: hidden;
+      display: flex;
+      flex-direction: column;
+      position: fixed;
+      top: 0;
+      right: -50%;
+      height: 100dvh;
+      background-color: var(--hemo-color-background);
+      padding: 2rem;
+      gap: 2rem;
+      margin: 0;
 
-    nav li a:hover,
-    nav li a:focus {
-        color: var(--hemo-color-primary);
-    }
-
-    .nav-list {
-        list-style-type: none;
-        display: inline-flex;
-        gap: 2rem;
-    }
-
-    .nav-list .active {
-        color: var(--hemo-color-primary);
-        border-bottom: 2px solid var(--hemo-color-primary);
-    }
-
-    .nav-list li {
-        display: flex;
-        align-items: center;
-    }
-
-    .hamburger-menu {
-        display: none;
-    }
-    .overlay {
-        visibility: hidden;
-        opacity: 0;
-        position: fixed;
-        top: 0;
-        right: 0;
-        height: 100dvh;
-        width: 100vw;
-        background-color: rgba(0, 0, 0, 0.4);
-        z-index: 1;
-
-        transition:
-            visibility 0.3s,
-            opacity 0.3s;
-    }
-
-    #hamburger-menu:checked ~ .right-side {
-        right: 0;
-        visibility: visible;
-    }
-    #hamburger-menu:checked ~ .right-side li a:hover {
-        color: var(--hemo-color-text-primary);
-    }
-
-    #hamburger-menu:checked ~ .hamburger-label .overlay {
-        visibility: visible;
-        opacity: 1;
+      transition:
+        right 0.3s,
+        visibility 0.3s;
     }
 
     .theme-toggler {
-        --color-secondary: var(--hemo-color-warn);
-
-        all: unset;
-        position: relative;
-        height: 18px;
-        width: 18px;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: transform 0.3s;
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
     }
 
-    .theme-toggler.dark {
-        --color-secondary: var(--hemo-color-mexican_chile);
+    .nav-list {
+      flex-direction: column;
+      gap: 1rem;
+      padding: 0;
     }
 
-    .theme-toggler.dark .ray {
-        opacity: 0;
+    .hamburger-menu {
+      display: block;
     }
-
-    .theme-toggler.dark .moon {
-        transform: scale(1) translate(25%, -25%);
-    }
-
-    .theme-toggler .moon,
-    .theme-toggler .sun {
-        display: block;
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        border-radius: 50%;
-        background: var(--color-secondary);
-        border: 2px solid var(--hemo-color-background);
-    }
-
-    .theme-toggler .moon {
-        background: var(--hemo-color-background);
-        border-radius: 50%;
-        transform: scale(0) translate(25%, -25%);
-        z-index: 9;
-        transition:
-            0.4s transform,
-            0.2s background;
-        transform-origin: right;
-    }
-
-    .theme-toggler:hover {
-        transform: scale(1.1);
-    }
-
-    .theme-toggler .ray {
-        width: 2px;
-        background: var(--color-secondary);
-        display: block;
-        height: 121%;
-        position: absolute;
-        z-index: -1;
-        transition: 0.3s;
-    }
-    .theme-toggler .ray:nth-child(1) {
-        transform: rotate(30deg);
-    }
-    .theme-toggler .ray:nth-child(2) {
-        transform: rotate(60deg);
-    }
-    .theme-toggler .ray:nth-child(3) {
-        transform: rotate(90deg);
-    }
-    .theme-toggler .ray:nth-child(4) {
-        transform: rotate(120deg);
-    }
-    .theme-toggler .ray:nth-child(5) {
-        transform: rotate(150deg);
-    }
-    .theme-toggler .ray:nth-child(6) {
-        transform: rotate(180deg);
-    }
-    .theme-toggler .ray:nth-child(7) {
-        transform: rotate(210deg);
-    }
-    .theme-toggler .ray:nth-child(8) {
-        transform: rotate(240deg);
-    }
-
-    .hidden {
-        display: none;
-    }
-
-    @media screen and (max-width: 768px) {
-        .right-side {
-            visibility: hidden;
-            display: flex;
-            flex-direction: column;
-            position: fixed;
-            top: 0;
-            right: -50%;
-            height: 100dvh;
-            background-color: var(--hemo-color-background);
-            padding: 2rem 3rem;
-            gap: 2rem;
-            margin: 0;
-
-            transition:
-                right 0.3s,
-                visibility 0.3s;
-        }
-
-        .nav-list {
-            flex-direction: column;
-            gap: 1rem;
-            padding: 0;
-        }
-
-        .hamburger-menu {
-            display: block;
-        }
-    }
+  }
 </style>
 
 <style is:global>
-    .signin-button {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 0.5rem;
-        border-radius: 100px !important;
-    }
+  .signin-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border-radius: 100px !important;
+  }
 
-    @media screen and (max-width: 768px) {
-        .signin-button-anchor,
-        .signin-button {
-            width: 100%;
-        }
+  @media screen and (max-width: 768px) {
+    .signin-button-anchor,
+    .signin-button {
+      width: 100%;
     }
+  }
 </style>

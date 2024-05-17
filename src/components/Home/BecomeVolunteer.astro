@@ -3,50 +3,55 @@ import Button from "../Button.astro";
 ---
 
 <section>
-    <div class="container">
-        <aside>
-            <h2>Seja um voluntário no Hemocione</h2>
-            <p>Encontre o seu lugar e faça parte da equipe que salva vidas.</p>
-        </aside>
-        <aside>
-            <Button>Fale conosco</Button>
-        </aside>
-    </div>
+  <div class="container">
+    <aside>
+      <h2>Seja um voluntário no Hemocione</h2>
+      <p>Encontre o seu lugar e faça parte da equipe que salva vidas.</p>
+    </aside>
+    <aside>
+      <a
+        href="mailto:sejavoluntario@hemocione.com.br?subject=Quero me tornar Voluntário do Hemocione"
+        target="_blank"
+      >
+        <Button>Seja Voluntário</Button>
+      </a>
+    </aside>
+  </div>
 </section>
 
 <style>
-    section {
-        background-color: var(--hemo-color-secondary);
-        color: var(--hemo-color-text-secondary);
-    }
+  section {
+    background-color: var(--hemo-color-secondary);
+    color: var(--hemo-color-text-secondary);
+  }
 
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    padding: 2rem 0;
+  }
+
+  h2 {
+    margin: 0 0 1rem 0;
+  }
+
+  aside:first-child {
+    flex: 1;
+  }
+
+  @media (max-width: 768px) {
     .container {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 2rem;
-        padding: 2rem 0;
+      flex-direction: column;
+      padding: 2rem 1rem;
     }
 
-    h2 {
-        margin: 0 0 1rem 0;
+    aside {
+      text-align: center;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
     }
-
-    aside:first-child {
-        flex: 1;
-    }
-
-    @media (max-width: 768px) {
-        .container {
-            flex-direction: column;
-            padding: 2rem 1rem;
-        }
-
-        aside {
-            text-align: center;
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-        }
-    }
+  }
 </style>

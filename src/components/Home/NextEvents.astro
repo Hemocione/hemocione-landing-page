@@ -1,171 +1,170 @@
 ---
-import EleventyFetch from "@11ty/eleventy-fetch";
-
 import { config } from "../../utils/environment";
 import Button from "../Button.astro";
 import Title from "../Title.astro";
 import type { HemocioneEvent } from "../../types/events";
+export const prerender = false;
 
-const data: HemocioneEvent[] = await EleventyFetch(
-    `${config.hemocioneEventsApi}/v1/event`,
-    {
-        duration: "1d",
-        type: "json",
-    },
-);
+const dataRaw = await fetch(`${config.hemocioneEventsApi}/v1/event`, {
+  headers: {
+    "Content-Type": "application/json",
+  },
+  method: "GET",
+});
+const data: HemocioneEvent[] = await dataRaw.json();
 
 const MAX_EVENTS = 3;
 
 interface EventCard {
-    month: string;
-    day: string;
-    name: string;
-    address: string;
-    image: string;
-    url: string;
+  month: string;
+  day: string;
+  name: string;
+  address: string;
+  image: string;
+  url: string;
 }
 
 const formatedEvents: EventCard[] = data.map((event) => {
-    const date = new Date(event.startAt);
-    const month = date.toLocaleString("pt-BR", { month: "short" });
-    const day = date.toLocaleString("pt-BR", { day: "2-digit" });
+  const date = new Date(event.startAt);
+  const month = date.toLocaleString("pt-BR", { month: "short" });
+  const day = date.toLocaleString("pt-BR", { day: "2-digit" });
 
-    return {
-        month,
-        day,
-        name: event.name,
-        address: event.location.address,
-        image: event.banner,
-        url: `${config.hemocioneEvents}/event/${event.slug}`,
-    };
+  return {
+    month,
+    day,
+    name: event.name,
+    address: event.location.address,
+    image: event.banner,
+    url: `${config.hemocioneEvents}/event/${event.slug}`,
+  };
 });
 
 const slicedEvents = formatedEvents.slice(0, MAX_EVENTS);
 ---
 
 <section id="next-events">
-    <Title subtitle="Encontre um evento perto de você">Próximos eventos</Title>
-    <div class="cards container">
-        {
-            slicedEvents.map((event) => (
-                <a href={event.url} target="_blank">
-                    <div class="card">
-                        <img src={event.image} alt={event.name} />
-                        <div class="card-info">
-                            <div class="card-date">
-                                <p>{event.month}</p>
-                                <h4>{event.day}</h4>
-                            </div>
-                            <div class="card-location">
-                                <h4>{event.name}</h4>
-                                <p>{event.address}</p>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            ))
-        }
-    </div>
-    <a href={config.hemocioneEvents} target="_blank">
-        <Button className="next-events-button">Confira todos os eventos</Button>
-    </a>
+  <Title subtitle="Encontre um evento perto de você">Próximos eventos</Title>
+  <div class="cards container">
+    {
+      slicedEvents.map((event) => (
+        <a href={event.url} target="_blank">
+          <div class="card">
+            <img src={event.image} alt={event.name} />
+            <div class="card-info">
+              <div class="card-date">
+                <p>{event.month}</p>
+                <h4>{event.day}</h4>
+              </div>
+              <div class="card-location">
+                <h4>{event.name}</h4>
+                <p>{event.address}</p>
+              </div>
+            </div>
+          </div>
+        </a>
+      ))
+    }
+  </div>
+  <a href={config.hemocioneEvents} target="_blank">
+    <Button className="next-events-button">Confira todos os eventos</Button>
+  </a>
 </section>
 
 <style>
-    section {
-        background-color: var(--hemo-color-text-primary);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 0.25rem;
-        padding: 4rem 0 3rem;
-    }
+  section {
+    background-color: var(--hemo-color-text-primary);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25rem;
+    padding: 4rem 0 3rem;
+  }
 
-    p,
-    h4 {
-        margin: 0;
-    }
+  p,
+  h4 {
+    margin: 0;
+  }
 
-    .cards {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-        gap: 1rem;
-        margin: 2rem 0;
-    }
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1rem;
+    margin: 2rem 0;
+  }
 
-    .card {
-        background-color: var(--hemo-color-background);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 0.5rem;
-        padding: 1rem;
-        box-shadow: 0px 2px 4px var(--hemo-color-slate-300);
-        border-radius: 0.5rem;
-        cursor: pointer;
-        transition: all 0.3s;
-    }
+  .card {
+    background-color: var(--hemo-color-background);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem;
+    box-shadow: 0px 2px 4px var(--hemo-color-slate-300);
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
 
-    .card:hover {
-        transform: translateY(-0.25rem);
-        box-shadow: 0px 8px 8px var(--hemo-color-slate-300);
-    }
+  .card:hover {
+    transform: translateY(-0.25rem);
+    box-shadow: 0px 8px 8px var(--hemo-color-slate-300);
+  }
 
-    .card img {
-        width: 100%;
-        height: 200px;
-        object-fit: cover;
-        border-radius: 0.5rem;
-    }
+  .card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 0.5rem;
+  }
 
-    .card-info {
-        display: flex;
-        align-items: center;
-        width: 100%;
-        gap: 1rem;
-        margin-top: 0.5rem;
-    }
+  .card-info {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: 1rem;
+    margin-top: 0.5rem;
+  }
 
-    .card-date {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        border: 1px solid var(--hemo-color-primary);
-        border-radius: 0.5rem;
-        color: var(--hemo-color-primary);
-        padding: 0.5rem;
-        aspect-ratio: 1/1;
-        width: 3rem;
-        height: 3rem;
-        font-size: 0.75rem;
-        text-transform: uppercase;
-    }
+  .card-date {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--hemo-color-primary);
+    border-radius: 0.5rem;
+    color: var(--hemo-color-primary);
+    padding: 0.5rem;
+    aspect-ratio: 1/1;
+    width: 3rem;
+    height: 3rem;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+  }
 
-    .card-date h4 {
-        font-weight: 600;
-        font-size: 0.875rem;
-    }
+  .card-date h4 {
+    font-weight: 600;
+    font-size: 0.875rem;
+  }
 
-    .card-location {
-        text-transform: lowercase;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-evenly;
-        text-overflow: ellipsis;
-        overflow: hidden;
-    }
-    .card-location > *::first-letter {
-        text-transform: capitalize;
-    }
+  .card-location {
+    text-transform: lowercase;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+  .card-location > *::first-letter {
+    text-transform: capitalize;
+  }
 </style>
 
 <style is:global>
-    @media screen and (max-width: 768px) {
-        .next-events-button {
-            width: calc(100% - 2rem);
-        }
+  @media screen and (max-width: 768px) {
+    .next-events-button {
+      width: calc(100% - 2rem);
     }
+  }
 </style>

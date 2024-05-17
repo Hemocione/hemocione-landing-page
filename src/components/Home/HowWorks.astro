@@ -5,88 +5,89 @@ import SyringeSVG from "../../assets/icons/syringe.svg";
 import HeartSVG from "../../assets/icons/heart.svg";
 
 const CARDS = [
-    {
-        title: "Agende sua doação online",
-        description:
-            "Faça seu agendamento de forma rápida e fácil através da nossa plataforma online. Escolha o melhor horário para você e evite filas no local de doação.",
-        icon: CalendarDateSVG.src,
-    },
-    {
-        title: "Doação rápida e segura",
-        description:
-            "Chegou o grande dia! Após um breve processo de triagem, você estará pronto para doar sangue. O processo de coleta dura apenas alguns minutos e você ganha um lanchinho!",
-        icon: SyringeSVG.src,
-    },
-    {
-        title: "Seu sangue, uma vida salva",
-        description:
-            "Depois de doar, o sangue passa por testes para ser usado em transfusões, tratamentos de câncer, cirurgias e emergências, ajudando a salvar vidas em toda a comunidade.",
-        icon: HeartSVG.src,
-    },
+  {
+    title: "Participe de um evento Hemocione",
+    description:
+      "Faça sua inscrição de forma rápida e fácil através da nossa plataforma online. Escolha o melhor horário e local para você e evite filas na hora da doação.",
+    icon: CalendarDateSVG.src,
+  },
+  {
+    title: "Doação rápida e segura",
+    description:
+      "Chegou o grande dia! Após um breve processo de triagem, você estará pronto para doar sangue. O processo de coleta dura apenas alguns minutos e você ganha um lanchinho!",
+    icon: SyringeSVG.src,
+  },
+  {
+    title: "Seu sangue, uma vida salva",
+    description:
+      "Depois de doar, o sangue passa por testes para ser usado em transfusões, tratamentos de câncer, cirurgias e emergências, ajudando a salvar vidas em toda a comunidade.",
+    icon: HeartSVG.src,
+  },
 ];
 ---
 
 <section class="container">
-    <Title subtitle="O caminho do sangue">
-        Como funciona a doação de sangue?
-    </Title>
-    <div class="cards">
-        {
-            CARDS.map((card) => (
-                <div class="card">
-                    <div class="image">
-                        <img
-                            src={card.icon}
-                            alt="Ícone ilustrativo para a doação de sangue"
-                        />
-                    </div>
-                    <h3>{card.title}</h3>
-                    <p>{card.description}</p>
-                </div>
-            ))
-        }
-    </div>
+  <Title subtitle="O caminho do sangue">
+    Como funciona a doação de sangue?
+  </Title>
+  <div class="cards">
+    {
+      CARDS.map((card) => (
+        <div class="card">
+          <div class="image">
+            <img
+              src={card.icon}
+              alt="Ícone ilustrativo para a doação de sangue"
+            />
+          </div>
+          <h3>{card.title}</h3>
+          <p>{card.description}</p>
+        </div>
+      ))
+    }
+  </div>
 </section>
 
 <style>
-    section {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 0.25rem;
-    }
+  section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25rem;
+    padding: 3rem;
+  }
 
-    .cards {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        column-gap: 9rem;
-        row-gap: 4rem;
-        margin-top: 4rem;
-    }
+  .cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    column-gap: 9rem;
+    row-gap: 4rem;
+    margin-top: 4rem;
+  }
 
-    .card {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 1rem;
-        text-align: center;
-    }
+  .card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    text-align: center;
+  }
 
-    .card p {
-        max-width: 250px;
-    }
+  .card p {
+    max-width: 250px;
+  }
 
-    .image {
-        padding: 1rem;
-        border-radius: 100%;
-        background-color: var(--hemo-color-valerie);
-        width: 120px;
-        height: 120px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-bottom: 1rem;
-    }
+  .image {
+    padding: 1rem;
+    border-radius: 100%;
+    background-color: var(--hemo-color-valerie);
+    width: 120px;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
 </style>

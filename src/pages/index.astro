@@ -21,11 +21,10 @@ import BecomeVolunteer from "../components/Home/BecomeVolunteer.astro";
     <CallToAction />
     <HowWorks />
     <NextEvents />
+    <CallToActionPartners />
     <Feedbacks />
     <!-- <Partners /> -->
-    <br />
-    <CallToActionPartners />
-    <FAQ />
+    <!-- <FAQ /> -->
     <BecomeVolunteer />
   </main>
 </Layout>
@@ -34,12 +33,5 @@ import BecomeVolunteer from "../components/Home/BecomeVolunteer.astro";
   #main {
     display: flex;
     flex-direction: column;
-    gap: 6rem;
-  }
-
-  @media (max-width: 768px) {
-    #main {
-      gap: 3rem;
-    }
   }
 </style>
