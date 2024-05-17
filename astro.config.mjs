@@ -1,7 +1,7 @@
-import { defineConfig } from 'astro/config';
+import { defineConfig } from "astro/config";
 import partytown from "@astrojs/partytown";
-
 import vue from "@astrojs/vue";
+import react from "@astrojs/react";
 
 // https://astro.build/config
 export default defineConfig({
@@ -13,5 +13,6 @@ export default defineConfig({
         forward: ["dataLayer.push"],
       },
     }),
-  ]
+    react(),
+  ],
 });
