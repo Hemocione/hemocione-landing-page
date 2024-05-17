@@ -9,9 +9,7 @@ const BloodBrothersDialog = () => {
   })
 
   function closeModal() {
-    console.log('closing modal');
     setShowModal(false);
-    console.log('closing modal');
     document.body.style.overflow = 'auto';
   }
 
