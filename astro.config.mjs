@@ -3,6 +3,8 @@ import partytown from "@astrojs/partytown";
 import vue from "@astrojs/vue";
 import react from "@astrojs/react";
 
+import vercel from "@astrojs/vercel/serverless";
+
 // https://astro.build/config
 export default defineConfig({
   integrations: [
@@ -15,4 +17,11 @@ export default defineConfig({
     }),
     react(),
   ],
+  output: "hybrid",
+  adapter: vercel({
+    isr: {
+      // caches all pages on first request and saves for 1 day
+      expiration: 60 * 60 * 24,
+    },
+  }),
 });
