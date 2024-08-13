@@ -17,11 +17,11 @@ export default defineConfig({
     }),
     react(),
   ],
-  output: "hybrid",
+  output: "server",
   adapter: vercel({
     isr: {
-      // caches all pages on first request and saves for 1 day
-      expiration: 60 * 60 * 24,
+      // caches all pages on first request and saves for 12 hours
+      expiration: 60 * 60 * 12,
     },
   }),
 });

@@ -3,7 +3,6 @@ import { config } from "../../utils/environment";
 import Button from "../Button.astro";
 import Title from "../Title.astro";
 import type { HemocioneEvent } from "../../types/events";
-export const prerender = false;
 
 const dataRaw = await fetch(`${config.hemocioneEventsApi}/v1/event`, {
   headers: {
