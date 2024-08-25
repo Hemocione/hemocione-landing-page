@@ -4,118 +4,118 @@ import Button from "../../components/Button.astro";
 import TextCarousel from "../../components/TextCarousel.vue";
 
 const TEXT_CAROUSEL = [
-  "salvar vidas",
-  "ajudar o próximo",
-  "um gesto de amor",
-  "dar esperança",
-  "ser voluntário",
+    "salvar vidas",
+    "ajudar o próximo",
+    "um gesto de amor",
+    "dar esperança",
+    "ser voluntário",
 ];
 ---
 
 <section id="hero" class="container">
-  <aside>
-    <h1>
-      Doar sangue é
-      <br />
-      <TextCarousel
-        class="carousel"
-        texts={TEXT_CAROUSEL}
-        interval={2500}
-        client:only="vue"
-      />
-    </h1>
-    <p>
-      O Hemocione te ajuda a doar e realizar eventos de doação de sangue,
-      envolvendo a comunidade e transformando vidas.
-    </p>
-    <div class="actions">
-      <a href="#next-events">
-        <Button className="donate-button">Doe em um evento</Button>
-      </a>
-      <a
-        href="mailto:sejaparceiro@hemocione.com.br?subject=Quero me tornar Parceiro do Hemocione"
-        target="_blank"
-      >
-        <Button type="plain">Seja um parceiro</Button>
-      </a>
-    </div>
-  </aside>
-  <aside class="image">
-    <img src={heroWEBP.src} alt="Ilustração com várias imagens de ..." />
-  </aside>
+    <aside>
+        <h1>
+            Doar sangue é
+            <br />
+            <TextCarousel
+                class="carousel"
+                texts={TEXT_CAROUSEL}
+                interval={2500}
+                client:only
+            />
+        </h1>
+        <p>
+            O Hemocione te ajuda a doar e realizar eventos de doação de sangue,
+            envolvendo a comunidade e transformando vidas.
+        </p>
+        <div class="actions">
+            <a href="#next-events">
+                <Button className="donate-button">Doe em um evento</Button>
+            </a>
+            <a
+              href="mailto:sejaparceiro@hemocione.com.br?subject=Quero me tornar Parceiro do Hemocione"
+              target="_blank"
+            >
+            <Button type="plain">Seja um parceiro</Button>
+            </a>
+        </div>
+    </aside>
+    <aside class="image">
+        <img src={heroWEBP.src} alt="Ilustração com várias imagens de ..." />
+    </aside>
 </section>
 
 <style>
-  section {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 4rem;
-    padding-top: 7rem;
-    padding-bottom: 3rem;
-  }
-
-  aside {
-    flex: 1;
-  }
-
-  h1 {
-    font-size: 3.75rem;
-    line-height: 1;
-    font-weight: 900;
-    margin-bottom: 1rem;
-  }
-
-  .carousel {
-    color: var(--hemo-color-primary);
-    margin-top: -0.5rem;
-  }
-
-  p {
-    font-size: 1.25rem;
-    margin-bottom: 2rem;
-    color: var(--hemo-color-blue-800);
-  }
-
-  img {
-    width: 100%;
-    object-fit: contain;
-  }
-
-  .actions {
-    display: flex;
-    gap: 1rem;
-  }
-
-  @media (max-width: 1092px) {
-    .actions {
-      flex-direction: column;
-    }
-  }
-
-  @media (max-width: 768px) {
     section {
-      height: calc(100dvh - var(--navbar-height));
-      padding: 2rem 1rem;
-      text-align: center;
-      flex-direction: column-reverse;
-      gap: 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 4rem;
+        padding-top: 7rem;
+        padding-bottom: 3rem;
+    }
+
+    aside {
+        flex: 1;
     }
 
     h1 {
-      margin-top: 0;
-      font-size: 3rem;
+        font-size: 3.75rem;
+        line-height: 1;
+        font-weight: 900;
+        margin-bottom: 1rem;
     }
 
-    .image {
-      flex: 0;
+    .carousel {
+        color: var(--hemo-color-primary);
+        margin-top: -0.5rem;
     }
-  }
+
+    p {
+        font-size: 1.25rem;
+        margin-bottom: 2rem;
+        color: var(--hemo-color-blue-800);
+    }
+
+    img {
+        width: 100%;
+        object-fit: contain;
+    }
+
+    .actions {
+        display: flex;
+        gap: 1rem;
+    }
+
+    @media (max-width: 1092px) {
+        .actions {
+            flex-direction: column;
+        }
+    }
+
+    @media (max-width: 768px) {
+        section {
+            height: calc(100dvh - var(--navbar-height));
+            padding: 2rem 1rem;
+            text-align: center;
+            flex-direction: column-reverse;
+            gap: 2rem;
+        }
+
+        h1 {
+            margin-top: 0;
+            font-size: 3rem;
+        }
+
+        .image {
+            flex: 0;
+        }
+    }
 </style>
 
 <style is:global>
-  .donate-button {
-    width: 100%;
-    flex: 1;
-  }
+    .donate-button {
+        width: 100%;
+        flex: 1;
+    }
 </style>
