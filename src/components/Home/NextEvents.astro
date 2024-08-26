@@ -10,7 +10,13 @@ const dataRaw = await fetch(`${config.hemocioneEventsApi}/v1/event`, {
   },
   method: "GET",
 });
-const data: HemocioneEvent[] = await dataRaw.json();
+
+let data: HemocioneEvent[] = [];
+try {
+  data = (await dataRaw.json()) || [];
+} catch (error) {
+  console.error("Error fetching events", error);
+}
 
 const MAX_EVENTS = 3;
 
