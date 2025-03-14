@@ -1,0 +1,58 @@
+---
+import Button from "../Button.astro";
+import { config } from "../../utils/environment";
+---
+
+<section>
+  <div class="container">
+    <aside>
+      <h2>Quer doar sangue?</h2>
+      <p>
+        Responda nosso questionário rápido e descubra se você pode doar sangue
+        agora!
+      </p>
+    </aside>
+    <aside>
+      <a href={config.hemocioneCanDonate} target="_blank">
+        <Button type="secondary">Descobrir se posso doar sangue</Button>
+      </a>
+    </aside>
+  </div>
+</section>
+
+<style>
+  section {
+    background-color: var(--hemo-color-primary);
+    color: var(--hemo-color-text-primary);
+  }
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    padding: 2rem 0;
+  }
+
+  h2 {
+    margin: 0 0 1rem 0;
+  }
+
+  aside:first-child {
+    flex: 1;
+  }
+
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column;
+      padding: 2rem 1rem;
+    }
+
+    aside {
+      text-align: center;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+  }
+</style>
