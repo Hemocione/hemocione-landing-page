@@ -88,88 +88,50 @@ const currentPath = Astro.url.pathname;
 <script>
   const documentElement = document.documentElement;
   const toggleDarkMode = document.getElementById("toggle-dark-mode");
+  const logo = document.getElementById("logo");
+  const logoWhite = document.getElementById("logo-white");
+  const hambugerMenuLight = document.getElementById("hamburger-menu-light");
+  const hambugerMenuDark = document.getElementById("hamburger-menu-dark");
 
   toggleDarkMode?.addEventListener("click", toggleTheme);
 
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", setTheme);
-  } else {
+  setTheme();
+
+  function toggleTheme() {
+    let theme = "light";
+
+    if (documentElement.classList.contains("dark")) {
+      theme = "light";
+    } else {
+      theme = "dark";
+    }
+
+    localStorage.setItem("theme", theme);
+
     setTheme();
   }
 
-  // Reaplica o tema após navegação SPA (Astro View Transitions ou Islands)
-  window.addEventListener("astro:after-swap", () => {
-    setTheme();
-  });
-
   function setTheme() {
-    const logo = document.getElementById("logo");
-    const logoWhite = document.getElementById("logo-white");
-    const hambugerMenuLight = document.getElementById("hamburger-menu-light");
-    const hambugerMenuDark = document.getElementById("hamburger-menu-dark");
-    const toggleDarkMode = document.getElementById("toggle-dark-mode");
     const theme = localStorage.getItem("theme");
-    // Sempre remova 'hidden' de ambos antes de aplicar
-    logo?.classList.remove("hidden");
-    logoWhite?.classList.remove("hidden");
-    hambugerMenuLight?.classList.remove("hidden");
-    hambugerMenuDark?.classList.remove("hidden");
 
     if (theme === "dark") {
-      document.documentElement.classList.add("dark");
+      documentElement.classList.add("dark");
       toggleDarkMode?.classList.add("dark");
       logo?.classList.add("hidden");
       hambugerMenuLight?.classList.add("hidden");
       logoWhite?.classList.remove("hidden");
       hambugerMenuDark?.classList.remove("hidden");
+
       return;
     }
-    document.documentElement.classList.remove("dark");
+
+    documentElement.classList.remove("dark");
     toggleDarkMode?.classList.remove("dark");
     logo?.classList.remove("hidden");
     hambugerMenuLight?.classList.remove("hidden");
     logoWhite?.classList.add("hidden");
     hambugerMenuDark?.classList.add("hidden");
   }
-
-  function toggleTheme() {
-    let theme = "light";
-    if (document.documentElement.classList.contains("dark")) {
-      theme = "light";
-    } else {
-      theme = "dark";
-    }
-    localStorage.setItem("theme", theme);
-    setTheme();
-  }
-
-  // Event delegation: ouve todos os cliques no documento
-  document.addEventListener("click", function (e) {
-    const target = e.target;
-    if (target && target instanceof Element) {
-      const btn = target.closest("#toggle-dark-mode");
-      if (btn) {
-        toggleTheme();
-      }
-    }
-  });
-
-  // Inicialização segura
-  function initThemeControl() {
-    setTheme();
-  }
-
-  // Roda no carregamento inicial
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initThemeControl);
-  } else {
-    initThemeControl();
-  }
-
-  // Roda após cada navegação SPA (View Transitions)
-  window.addEventListener("astro:after-swap", () => {
-    initThemeControl();
-  });
 </script>
 
 <style>
