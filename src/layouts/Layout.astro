@@ -1,5 +1,6 @@
 ---
 import { ViewTransitions } from "astro:transitions";
+import LoadingIndicator from "astro-loading-indicator/component";
 import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
 import "../styles/global.css";
@@ -50,6 +51,7 @@ const pageTitle = title ? `Hemocione - ${title}` : "Hemocione";
     <meta name="generator" content={Astro.generator} />
     <title>{pageTitle}</title>
     <ViewTransitions />
+    <LoadingIndicator color="var(--hemo-color-primary)" />
 
     <!-- Google tag (gtag.js) -->
     <script
@@ -69,26 +71,26 @@ const pageTitle = title ? `Hemocione - ${title}` : "Hemocione";
       gtag("config", "G-75J9MM7SHP");
     </script>
 
-    <script is:inline>
-      const theme = (() => {
-        if (
-          typeof localStorage !== "undefined" &&
-          localStorage.getItem("theme")
-        ) {
-          return localStorage.getItem("theme");
+    <script>
+      // Garante que a classe 'dark' está correta no html antes de qualquer renderização
+      (function () {
+        try {
+          var theme = localStorage.getItem("theme");
+          if (!theme) {
+            theme = window.matchMedia("(prefers-color-scheme: dark)").matches
+              ? "dark"
+              : "light";
+          }
+          if (theme === "dark") {
+            document.documentElement.classList.add("dark");
+          } else {
+            document.documentElement.classList.remove("dark");
+          }
+        } catch (e) {
+          console.log("mamou");
+          console.error(e);
         }
-        if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-          return "dark";
-        }
-        return "light";
       })();
-
-      if (theme === "light") {
-        document.documentElement.classList.remove("dark");
-      } else {
-        document.documentElement.classList.add("dark");
-      }
-      window.localStorage.setItem("theme", theme ?? "light");
     </script>
   </head>
   <body>
