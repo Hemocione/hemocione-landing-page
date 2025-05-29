@@ -58,6 +58,9 @@ const currentPath = Astro.url.pathname;
             >Onde Doar</a
           >
         </li>
+        <li class={currentPath === "/app" ? "active" : ""}>
+          <a href="/app">App</a>
+        </li>
       </ol>
       <!-- <a class="signin-button-anchor" href={config.hemocioneApp}>
                 <Button size="small" className="signin-button">
