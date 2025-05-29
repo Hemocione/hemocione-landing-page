@@ -62,12 +62,6 @@ const currentPath = Astro.url.pathname;
           <a href="/app">App</a>
         </li>
       </ol>
-      <!-- <a class="signin-button-anchor" href={config.hemocioneApp}>
-                <Button size="small" className="signin-button">
-                    <img src={userSVG.src} alt="Ícone de usuário" />
-                    Entrar
-                </Button>
-            </a> -->
       <button id="toggle-dark-mode" class="theme-toggler show-only-big">
         <span class="moon"></span>
         <span class="sun"></span>
@@ -86,52 +80,72 @@ const currentPath = Astro.url.pathname;
 </header>
 
 <script>
-  const documentElement = document.documentElement;
-  const toggleDarkMode = document.getElementById("toggle-dark-mode");
-  const logo = document.getElementById("logo");
-  const logoWhite = document.getElementById("logo-white");
-  const hambugerMenuLight = document.getElementById("hamburger-menu-light");
-  const hambugerMenuDark = document.getElementById("hamburger-menu-dark");
+  function initializeTheme() {
+    const documentElement = document.documentElement;
+    const toggleDarkMode = document.getElementById("toggle-dark-mode");
+    const logo = document.getElementById("logo");
+    const logoWhite = document.getElementById("logo-white");
+    const hambugerMenuLight = document.getElementById("hamburger-menu-light");
+    const hambugerMenuDark = document.getElementById("hamburger-menu-dark");
 
-  toggleDarkMode?.addEventListener("click", toggleTheme);
+    function setTheme() {
+      const theme = localStorage.getItem("theme") || "light";
 
-  setTheme();
-
-  function toggleTheme() {
-    let theme = "light";
-
-    if (documentElement.classList.contains("dark")) {
-      theme = "light";
-    } else {
-      theme = "dark";
+      if (theme === "dark") {
+        documentElement.classList.add("dark");
+        toggleDarkMode?.classList.add("dark");
+        logo?.classList.add("hidden");
+        hambugerMenuLight?.classList.add("hidden");
+        logoWhite?.classList.remove("hidden");
+        hambugerMenuDark?.classList.remove("hidden");
+      } else {
+        documentElement.classList.remove("dark");
+        toggleDarkMode?.classList.remove("dark");
+        logo?.classList.remove("hidden");
+        hambugerMenuLight?.classList.remove("hidden");
+        logoWhite?.classList.add("hidden");
+        hambugerMenuDark?.classList.add("hidden");
+      }
     }
 
-    localStorage.setItem("theme", theme);
+    function toggleTheme() {
+      const currentTheme = localStorage.getItem("theme") || "light";
+      const newTheme = currentTheme === "dark" ? "light" : "dark";
+      localStorage.setItem("theme", newTheme);
+      setTheme();
+    }
 
+    // Set initial theme
     setTheme();
+    // Add click listener to toggle button
+    toggleDarkMode?.addEventListener("click", toggleTheme);
+
+    // Observe DOM changes to handle dynamic content
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.type === "childList") {
+          const newToggleButton = document.getElementById("toggle-dark-mode");
+          if (
+            newToggleButton &&
+            !newToggleButton.hasAttribute("data-initialized")
+          ) {
+            newToggleButton.setAttribute("data-initialized", "true");
+            newToggleButton.addEventListener("click", toggleTheme);
+            setTheme();
+          }
+        }
+      });
+    });
+
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true,
+    });
   }
 
-  function setTheme() {
-    const theme = localStorage.getItem("theme");
-
-    if (theme === "dark") {
-      documentElement.classList.add("dark");
-      toggleDarkMode?.classList.add("dark");
-      logo?.classList.add("hidden");
-      hambugerMenuLight?.classList.add("hidden");
-      logoWhite?.classList.remove("hidden");
-      hambugerMenuDark?.classList.remove("hidden");
-
-      return;
-    }
-
-    documentElement.classList.remove("dark");
-    toggleDarkMode?.classList.remove("dark");
-    logo?.classList.remove("hidden");
-    hambugerMenuLight?.classList.remove("hidden");
-    logoWhite?.classList.add("hidden");
-    hambugerMenuDark?.classList.add("hidden");
-  }
+  // Re-initialize on Astro page transitions and on first page load
+  document.addEventListener("astro:page-load", initializeTheme);
+  document.addEventListener("astro:after-swap", initializeTheme);
 </script>
 
 <style>
