@@ -1,0 +1,33 @@
+# Hemocione
+
+> O Hemocione é uma ONG brasileira, fundada em 2017, que promove a doação de sangue
+> no Brasil. A organização conecta doadores, hemocentros e instituições (empresas,
+> escolas, universidades) através de uma rede de produtos digitais. Desde a
+> fundação, o Hemocione já apoiou mais de 230 eventos de doação, resultando em mais
+> de 10 mil bolsas de sangue coletadas e mais de 40 mil vidas salvas.
+
+## Sobre o Hemocione
+
+- [Quem somos](https://www.hemocione.com.br/quem-somos): história, missão e números de impacto.
+- [Política de privacidade](https://www.hemocione.com.br/privacy-policy): como o Hemocione trata dados pessoais.
+
+## Para empresas e instituições
+
+- [Leve uma coleta para sua empresa](https://www.hemocione.com.br/leve-uma-coleta): guia completo para organizar uma campanha de doação de sangue dentro de uma empresa, escola ou universidade, com um hemocentro parceiro indo até o local.
+- [Copas Hemocione](https://copa.hemocione.com.br): competição de doação de sangue entre times e empresas, para engajar colaboradores.
+
+## O que o Hemocione oferece
+
+- [O que fazemos](https://www.hemocione.com.br/o-que-fazemos): lista completa dos produtos e serviços do Hemocione.
+- [Eventos de doação](https://eventos.hemocione.com.br): inscrição em eventos de coleta de sangue em escolas, faculdades e empresas.
+- [App do doador](https://www.hemocione.com.br/app): histórico de doações e acompanhamento do perfil de doador.
+- [Onde doar](https://ondedoar.hemocione.com.br): localizador de pontos de doação de sangue.
+- [Descubra se você pode doar](https://possodoar.hemocione.com.br): questionário de elegibilidade para doação de sangue.
+- [Irmãos de Sangue](https://apoie.hemocione.com.br): doação financeira recorrente para sustentar o trabalho do Hemocione.
+- [Ajuda AI](https://ajudaai.hemocione.com.br): pedidos de ajuda para quem precisa de sangue ou doadores.
+
+## Contato
+
+- WhatsApp: +55 21 97011 4393
+- E-mail: contato@hemocione.com.br
+- Instagram, TikTok, X e LinkedIn: @hemocione

@@ -1,12 +1,65 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Button from "../components/Button.astro";
+import Collapse from "../components/Collapse.astro";
 import { config } from "../utils/environment";
 
 const agendarUrl = `${config.hemocioneColeta}/agendar?utm_source=landing-page&utm_medium=cta&utm_campaign=leve-uma-coleta`;
+
+const HOW_TO_STEPS = [
+  "Você solicita uma coleta externa para o banco de sangue mais próximo.",
+  "O banco de sangue analisa o pedido. Ele pode confirmar a data e o horário, ou propor uma visita técnica antes.",
+  "Depois da confirmação, sua instituição recebe o passo a passo para organizar a campanha.",
+  "Você acompanha o status da sua solicitação a qualquer momento.",
+];
+
+const FAQ_ITEMS = [
+  {
+    q: "Solicitar uma coleta de sangue na minha empresa tem algum custo?",
+    a: "Não. A solicitação pela plataforma Hemocione é gratuita. Os detalhes operacionais do dia da coleta são combinados diretamente com o hemocentro que aceitar a solicitação.",
+  },
+  {
+    q: "Minha empresa precisa de quantos colaboradores para doar?",
+    a: "O número mínimo de doadores é definido pelo hemocentro que aceitar sua solicitação, de acordo com a estrutura disponível.",
+  },
+  {
+    q: "Preciso de alguma estrutura especial no escritório?",
+    a: "O hemocentro informa os requisitos de espaço e estrutura ao confirmar sua solicitação, ou durante a visita técnica, se houver uma.",
+  },
+  {
+    q: "Minha empresa não é uma grande corporação. Posso solicitar mesmo assim?",
+    a: "Sim. Escolas, universidades e empresas de qualquer porte podem solicitar uma coleta pela plataforma Hemocione.",
+  },
+];
+
+const howToSchema = {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  name: "Como solicitar uma coleta de sangue para sua empresa",
+  step: HOW_TO_STEPS.map((text) => ({
+    "@type": "HowToStep",
+    text,
+  })),
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: FAQ_ITEMS.map((item) => ({
+    "@type": "Question",
+    name: item.q,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: item.a,
+    },
+  })),
+};
 ---
 
-<Layout title="Leve uma coleta de sangue para sua empresa">
+<Layout
+  title="Leve uma Coleta para sua Empresa"
+  description="Guia completo para organizar uma campanha de doação de sangue na sua empresa, escola ou universidade com o Hemocione. Passo a passo, gratuito."
+>
   <main class="companies-main">
     <section class="companies-hero">
       <h1>Leve uma coleta de sangue para sua empresa</h1>
@@ -19,19 +72,7 @@ const agendarUrl = `${config.hemocioneColeta}/agendar?utm_source=landing-page&ut
     <section class="companies-steps">
       <h2>Como funciona</h2>
       <ol>
-        <li>
-          Você solicita uma coleta externa para o banco de sangue mais
-          próximo.
-        </li>
-        <li>
-          O banco de sangue analisa o pedido. Ele pode confirmar a data e o
-          horário, ou propor uma visita técnica antes.
-        </li>
-        <li>
-          Depois da confirmação, sua instituição recebe o passo a passo para
-          organizar a campanha.
-        </li>
-        <li>Você acompanha o status da sua solicitação a qualquer momento.</li>
+        {HOW_TO_STEPS.map((step) => <li>{step}</li>)}
       </ol>
     </section>
     <section class="companies-cta">
@@ -43,7 +84,50 @@ const agendarUrl = `${config.hemocioneColeta}/agendar?utm_source=landing-page&ut
         <Button type="primary">Solicitar uma coleta</Button>
       </a>
     </section>
+
+    <section class="companies-section">
+      <h2>Por que fazer uma campanha solidária na sua empresa</h2>
+      <ul>
+        <li>Fortalece a cultura de responsabilidade social (ESG) da empresa.</li>
+        <li>Engaja colaboradores em uma ação com impacto direto e mensurável.</li>
+        <li>Gera conteúdo autêntico para comunicação interna e externa da marca.</li>
+      </ul>
+    </section>
+
+    <section class="companies-section">
+      <h2>Engaje seus colaboradores</h2>
+      <p>
+        Depois de solicitar sua coleta, você pode aumentar o engajamento da
+        equipe com outras ferramentas do Hemocione: inscreva sua empresa nas
+        <a
+          href="https://copa.hemocione.com.br"
+          target="_blank"
+          rel="noopener noreferrer">Copas Hemocione</a
+        >, uma competição de doação de sangue entre times.
+      </p>
+    </section>
+
+    <section class="companies-section faq-section">
+      <h2>Perguntas frequentes</h2>
+      <div class="faq-list">
+        {
+          FAQ_ITEMS.map((item) => (
+            <Collapse title={item.q}>
+              <p>{item.a}</p>
+            </Collapse>
+          ))
+        }
+      </div>
+    </section>
   </main>
+
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify(howToSchema)}></script>
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify(faqSchema)}></script>
+
   <style>
     .companies-main {
       display: flex;
@@ -82,6 +166,38 @@ const agendarUrl = `${config.hemocioneColeta}/agendar?utm_source=landing-page&ut
       display: flex;
       flex-direction: column;
       align-items: center;
+      gap: 1rem;
+    }
+
+    .companies-section {
+      width: 100%;
+      text-align: left;
+    }
+
+    .companies-section h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .companies-section ul {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      padding-left: 1.5rem;
+    }
+
+    .companies-section p {
+      line-height: 1.5rem;
+    }
+
+    .companies-section a {
+      color: var(--hemo-color-primary);
+      text-decoration: underline;
+    }
+
+    .faq-list {
+      display: flex;
+      flex-direction: column;
       gap: 1rem;
     }
   </style>

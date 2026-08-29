@@ -1,0 +1,135 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout
+  title="O que fazemos"
+  description="Conheça todos os produtos e serviços do Hemocione: eventos de doação, coleta corporativa, competições, certificados, doação recorrente e mais."
+>
+  <main id="main">
+    <article class="container reading-content">
+      <h1>O que o Hemocione oferece</h1>
+      <p>
+        O Hemocione oferece um conjunto de serviços gratuitos para doadores,
+        hemocentros e instituições: eventos de doação, coleta de sangue
+        corporativa, um app para doadores, localizador de pontos de doação,
+        competições entre empresas, doação financeira recorrente e canais de
+        ajuda para quem precisa de sangue.
+      </p>
+
+      <h2>Eventos de doação de sangue</h2>
+      <p>
+        Organizamos eventos de coleta de sangue em escolas, faculdades e
+        empresas por todo o Brasil. Você se inscreve online, escolhe o horário
+        e evita filas na hora da doação.
+      </p>
+      <a
+        href="https://eventos.hemocione.com.br"
+        target="_blank"
+        rel="noopener noreferrer">Acessar Eventos Hemocione</a
+      >
+
+      <h2>Leve uma Coleta (campanha na sua empresa)</h2>
+      <p>
+        Sua empresa pode trazer um hemocentro parceiro até o próprio escritório
+        para uma campanha de doação de sangue.
+      </p>
+      <a href="/leve-uma-coleta">Ver o guia completo</a>
+
+      <h2>App do doador</h2>
+      <p>Acompanhe seu histórico de doações e seu perfil de doador.</p>
+      <a href="/app">Conhecer o app</a>
+
+      <h2>Onde Doar</h2>
+      <p>Encontre o ponto de doação de sangue mais próximo de você.</p>
+      <a
+        href="https://ondedoar.hemocione.com.br"
+        target="_blank"
+        rel="noopener noreferrer">Acessar Onde Doar</a
+      >
+
+      <h2>Descubra se você pode doar</h2>
+      <p>
+        Responda um questionário rápido de elegibilidade para doação de sangue.
+      </p>
+      <a
+        href="https://possodoar.hemocione.com.br"
+        target="_blank"
+        rel="noopener noreferrer">Verificar elegibilidade</a
+      >
+
+      <h2>Copas Hemocione</h2>
+      <p>
+        Participe ou organize uma competição de doação de sangue entre times,
+        escolas ou empresas.
+      </p>
+      <a
+        href="https://copa.hemocione.com.br"
+        target="_blank"
+        rel="noopener noreferrer">Acessar Copas Hemocione</a
+      >
+
+      <h2>Irmãos de Sangue</h2>
+      <p>
+        Torne-se um doador recorrente com uma contribuição financeira mensal
+        para sustentar o trabalho do Hemocione.
+      </p>
+      <a
+        href="https://apoie.hemocione.com.br"
+        target="_blank"
+        rel="noopener noreferrer">Ser um Irmão de Sangue</a
+      >
+
+      <h2>Ajuda AI</h2>
+      <p>
+        Publique ou encontre pedidos de ajuda para quem precisa de sangue ou
+        doadores.
+      </p>
+      <a
+        href="https://ajudaai.hemocione.com.br"
+        target="_blank"
+        rel="noopener noreferrer">Acessar Ajuda AI</a
+      >
+
+    </article>
+  </main>
+</Layout>
+
+<style>
+  #main {
+    flex: 1;
+  }
+
+  .reading-content {
+    max-width: 800px;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    color: var(--hemo-color-text-secondary);
+  }
+
+  h1,
+  h2 {
+    color: var(--hemo-color-text-secondary);
+  }
+
+  h1 {
+    margin-bottom: 1.5rem;
+  }
+
+  h2 {
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    line-height: 1.6;
+    margin-bottom: 0.75rem;
+  }
+
+  a {
+    display: inline-block;
+    color: var(--hemo-color-primary);
+    text-decoration: underline;
+    margin-bottom: 0.5rem;
+  }
+</style>
