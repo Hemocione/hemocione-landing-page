@@ -7,9 +7,40 @@ import "../styles/global.css";
 
 interface Props {
   title: string;
+  description?: string;
 }
 
-const { title } = Astro.props;
+const { title, description } = Astro.props;
+
+const fallbackDescription =
+  "Hemocione é uma ONG dedicada a promover a doação de sangue no Brasil. Organizamos eventos, criamos conteúdo educativo e artigos científicos para conscientizar sobre a importância da doação. Também desenvolvemos soluções inovadoras para facilitar a vida dos doadores, bancos de sangue e instituições parceiras. Junte-se a nós e ajude a salvar vidas.";
+
+const ORG_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "NGO",
+  name: "Hemocione",
+  alternateName: "Associação Hemocione",
+  url: "https://www.hemocione.com.br",
+  logo: "https://cdn.hemocione.com.br/events/uploads/1699940076138-logo_hemocione_fb-2(1).png",
+  description:
+    "Hemocione é uma ONG brasileira, fundada em 2017, dedicada a promover e facilitar a doação de sangue no Brasil.",
+  foundingDate: "2017",
+  areaServed: "BR",
+  sameAs: [
+    "https://www.instagram.com/hemocione",
+    "https://www.tiktok.com/@hemocione",
+    "https://www.x.com/hemocione",
+    "https://www.linkedin.com/company/hemocione",
+  ],
+  contactPoint: {
+    "@type": "ContactPoint",
+    telephone: "+55-21-97011-4393",
+    email: "contato@hemocione.com.br",
+    contactType: "customer service",
+    areaServed: "BR",
+    availableLanguage: "Portuguese",
+  },
+};
 
 const pageTitle = title ? `Hemocione - ${title}` : "Hemocione";
 ---
@@ -19,7 +50,7 @@ const pageTitle = title ? `Hemocione - ${title}` : "Hemocione";
     <meta charset="UTF-8" />
     <meta
       name="description"
-      content="Hemocione é uma ONG dedicada a promover a doação de sangue no Brasil. Organizamos eventos, criamos conteúdo educativo e artigos científicos para conscientizar sobre a importância da doação. Também desenvolvemos soluções inovadoras para facilitar a vida dos doadores, bancos de sangue e instituições parceiras. Junte-se a nós e ajude a salvar vidas."
+      content={description ?? fallbackDescription}
     />
     <meta property="og:type" content="website" />
     <meta
@@ -29,7 +60,7 @@ const pageTitle = title ? `Hemocione - ${title}` : "Hemocione";
     <meta property="og:title" content="Hemocione - Doe Sangue, Doe Vida" />
     <meta
       property="og:description"
-      content="Hemocione é uma ONG dedicada a promover a doação de sangue no Brasil. Organizamos eventos, criamos conteúdo educativo e artigos científicos para conscientizar sobre a importância da doação. Também desenvolvemos soluções inovadoras para facilitar a vida dos doadores, bancos de sangue e instituições parceiras. Junte-se a nós e ajude a salvar vidas."
+      content={description ?? fallbackDescription}
     />
     <meta property="og:url" content="https://www.hemocione.com.br/" />
     <meta property="og:site_name" content="Hemocione" />
@@ -40,7 +71,7 @@ const pageTitle = title ? `Hemocione - ${title}` : "Hemocione";
     <meta name="twitter:title" content="Hemocione - Doe Sangue, Doe Vida" />
     <meta
       name="twitter:description"
-      content="Hemocione é uma ONG dedicada a promover a doação de sangue no Brasil. Organizamos eventos, criamos conteúdo educativo e artigos científicos para conscientizar sobre a importância da doação. Também desenvolvemos soluções inovadoras para facilitar a vida dos doadores, bancos de sangue e instituições parceiras. Junte-se a nós e ajude a salvar vidas."
+      content={description ?? fallbackDescription}
     />
     <meta
       name="twitter:image"
@@ -49,6 +80,9 @@ const pageTitle = title ? `Hemocione - ${title}` : "Hemocione";
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify(ORG_SCHEMA)}></script>
     <title>{pageTitle}</title>
     <ViewTransitions />
     <LoadingIndicator color="var(--hemo-color-primary)" />
