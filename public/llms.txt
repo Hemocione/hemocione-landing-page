@@ -15,7 +15,6 @@
 
 - [Leve uma coleta para sua empresa](https://www.hemocione.com.br/leve-uma-coleta): guia completo para organizar uma campanha de doação de sangue dentro de uma empresa, escola ou universidade, com um hemocentro parceiro indo até o local.
 - [Copas Hemocione](https://copa.hemocione.com.br): competição de doação de sangue entre times e empresas, para engajar colaboradores.
-- [Certificados digitais](https://certificados.hemocione.com.br): certificados de participação para colaboradores e voluntários.
 
 ## O que o Hemocione oferece
 
@@ -26,7 +25,6 @@
 - [Descubra se você pode doar](https://possodoar.hemocione.com.br): questionário de elegibilidade para doação de sangue.
 - [Irmãos de Sangue](https://apoie.hemocione.com.br): doação financeira recorrente para sustentar o trabalho do Hemocione.
 - [Ajuda AI](https://ajudaai.hemocione.com.br): pedidos de ajuda para quem precisa de sangue ou doadores.
-- [Vestir a Camisa](https://loja.hemocione.com.br): loja solidária com produtos do Hemocione.
 
 ## Contato
 
