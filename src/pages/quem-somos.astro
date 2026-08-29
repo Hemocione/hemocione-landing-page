@@ -2,14 +2,106 @@
 import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout title="">
-  <main id="main" transition:animate="fade">
-    <h1>oi</h1>
+<Layout
+  title="Quem somos"
+  description="O Hemocione é uma ONG brasileira fundada em 2017 que promove a doação de sangue. Conheça nossa missão, história e impacto."
+>
+  <main id="main">
+    <article class="container reading-content">
+      <h1>Quem somos</h1>
+      <p>
+        O Hemocione é uma ONG brasileira fundada em 2017. Promovemos a doação
+        de sangue no Brasil através de eventos, tecnologia e conscientização.
+        Já apoiamos mais de 230 eventos, resultando em mais de 10 mil bolsas de
+        sangue coletadas e mais de 40 mil vidas salvas.
+      </p>
+
+      <h2>Nossa missão</h2>
+      <p>
+        Somos uma ONG de jovens obstinados em promover o hábito da doação de
+        sangue no Brasil. Acreditamos que apenas a partir da conscientização
+        desde cedo conseguiremos formar uma geração de novos doadores, que dará
+        fim a este problema.
+      </p>
+
+      <h2>O que fazemos</h2>
+      <ul>
+        <li>
+          Eventos: organizamos eventos de coleta de sangue em escolas,
+          faculdades e empresas.
+        </li>
+        <li>
+          Conteúdo: produzimos conteúdo educativo e artigos científicos sobre
+          doação de sangue.
+        </li>
+        <li>
+          Tecnologia: desenvolvemos produtos digitais que facilitam a vida de
+          doadores, hemocentros e instituições parceiras. Veja a lista completa
+          em <a href="/o-que-fazemos">O que fazemos</a>.
+        </li>
+        <li>
+          Comunidade: engajamos apoiadores através da loja solidária Vestir a
+          Camisa e do programa de doação recorrente Irmãos de Sangue.
+        </li>
+      </ul>
+
+      <h2>Nosso impacto</h2>
+      <ul>
+        <li>230 eventos realizados</li>
+        <li>+10 mil bolsas de sangue coletadas</li>
+        <li>+40 mil vidas salvas</li>
+        <li>Atuação desde 2017</li>
+      </ul>
+
+      <h2>Fale com a gente</h2>
+      <p>
+        WhatsApp: +55 21 97011 4393 · E-mail: contato@hemocione.com.br ·
+        Instagram, TikTok, X e LinkedIn: @hemocione
+      </p>
+    </article>
   </main>
 </Layout>
 
 <style>
   #main {
     flex: 1;
+  }
+
+  .reading-content {
+    max-width: 800px;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    color: var(--hemo-color-text-secondary);
+  }
+
+  h1,
+  h2 {
+    color: var(--hemo-color-text-secondary);
+  }
+
+  h1 {
+    margin-bottom: 1.5rem;
+  }
+
+  h2 {
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  p,
+  li {
+    line-height: 1.6;
+  }
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding-left: 1.5rem;
+  }
+
+  a {
+    color: var(--hemo-color-primary);
+    text-decoration: underline;
   }
 </style>

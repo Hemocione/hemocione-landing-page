@@ -12,9 +12,13 @@ import CallToActionPartners from "../components/Home/CallToActionPartners.astro"
 import BecomeVolunteer from "../components/Home/BecomeVolunteer.astro";
 // import BloodBrothersDialog from "../components/Home/BloodBrothersDialog/BloodBrothersDialog.jsx";
 import CallToActionCanDonate from "../components/Home/CallToActionCanDonate.astro";
+import FAQ from "../components/Home/FAQ.astro";
 ---
 
-<Layout title="">
+<Layout
+  title=""
+  description="Hemocione é uma ONG dedicada a promover a doação de sangue no Brasil. Organizamos eventos de doação, coleta de sangue corporativa para empresas, competições, certificados digitais e mais. Junte-se a nós e ajude a salvar vidas."
+>
   <main id="main" transition:animate="fade">
     <!-- <BloodBrothersDialog client:load /> -->
     <!-- Removed Blood Brothers dialog for now -->
@@ -29,7 +33,7 @@ import CallToActionCanDonate from "../components/Home/CallToActionCanDonate.astr
     <CallToActionPartners />
     <Feedbacks />
     <!-- <Partners /> -->
-    <!-- <FAQ /> -->
+    <FAQ />
     <BecomeVolunteer />
   </main>
 </Layout>
