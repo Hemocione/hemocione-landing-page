@@ -37,6 +37,9 @@ const currentPath = Astro.url.pathname;
         <li class={currentPath === "/" ? "active" : ""}>
           <a href="/">Home</a>
         </li>
+        <li class={currentPath === "/leve-uma-coleta" ? "active" : ""}>
+          <a href="/leve-uma-coleta">Leve uma coleta</a>
+        </li>
         <li>
           <a href={config.hemocioneEvents} target="_blank">Eventos</a>
         </li>

@@ -17,4 +17,8 @@ export const config = {
     "HEMOCIONE_CAN_DONATE",
     "https://possodoar.hemocione.com.br"
   ),
+  hemocioneColeta: getFromEnv(
+    "HEMOCIONE_COLETA",
+    "https://coleta.hemocione.com.br"
+  ),
 } as const;
