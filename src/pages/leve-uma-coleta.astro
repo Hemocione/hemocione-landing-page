@@ -1,0 +1,88 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Button from "../components/Button.astro";
+import { config } from "../utils/environment";
+
+const agendarUrl = `${config.hemocioneColeta}/agendar?utm_source=landing-page&utm_medium=cta&utm_campaign=leve-uma-coleta`;
+---
+
+<Layout title="Leve uma coleta de sangue para sua empresa">
+  <main class="companies-main">
+    <section class="companies-hero">
+      <h1>Leve uma coleta de sangue para sua empresa</h1>
+      <p>
+        Sua empresa, escola, faculdade ou instituição pode promover uma
+        campanha de doação de sangue. É simples: você solicita, o banco de
+        sangue mais próximo analisa e organiza a coleta externa com você.
+      </p>
+    </section>
+    <section class="companies-steps">
+      <h2>Como funciona</h2>
+      <ol>
+        <li>
+          Você solicita uma coleta externa para o banco de sangue mais
+          próximo.
+        </li>
+        <li>
+          O banco de sangue analisa o pedido. Ele pode confirmar a data e o
+          horário, ou propor uma visita técnica antes.
+        </li>
+        <li>
+          Depois da confirmação, sua instituição recebe o passo a passo para
+          organizar a campanha.
+        </li>
+        <li>Você acompanha o status da sua solicitação a qualquer momento.</li>
+      </ol>
+    </section>
+    <section class="companies-cta">
+      <p>
+        Sua solicitação é analisada pelo banco de sangue mais próximo. Você
+        recebe uma resposta em seguida.
+      </p>
+      <a href={agendarUrl} target="_blank" rel="noopener noreferrer">
+        <Button type="primary">Solicitar uma coleta</Button>
+      </a>
+    </section>
+  </main>
+  <style>
+    .companies-main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2.5rem;
+      width: 100%;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 3rem 1rem;
+      text-align: center;
+    }
+
+    .companies-hero h1 {
+      margin-bottom: 1rem;
+    }
+
+    .companies-steps {
+      width: 100%;
+      text-align: left;
+    }
+
+    .companies-steps h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .companies-steps ol {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      padding-left: 1.5rem;
+    }
+
+    .companies-cta {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+  </style>
+</Layout>

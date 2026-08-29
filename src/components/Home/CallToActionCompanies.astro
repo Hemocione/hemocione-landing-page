@@ -1,0 +1,57 @@
+---
+import Button from "../Button.astro";
+---
+
+<section>
+  <div class="container">
+    <aside>
+      <h2>Leve uma coleta de sangue para sua empresa</h2>
+      <p>
+        Sua empresa, escola ou instituição pode promover uma campanha de
+        doação de sangue. Solicite uma coleta externa e ajude a salvar vidas.
+      </p>
+    </aside>
+    <aside>
+      <a href="/leve-uma-coleta">
+        <Button type="secondary">Leve uma coleta</Button>
+      </a>
+    </aside>
+  </div>
+
+  <style>
+    section {
+      background-color: var(--hemo-color-primary);
+      color: var(--hemo-color-text-primary);
+    }
+
+    .container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      padding: 2rem 0;
+    }
+
+    h2 {
+      margin: 0 0 1rem 0;
+    }
+
+    aside:first-child {
+      flex: 1;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+        padding: 2rem 1rem;
+      }
+
+      aside {
+        text-align: center;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+    }
+  </style>
+</section>
