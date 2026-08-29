@@ -151,4 +151,26 @@ function createItemClasses(item: Item) {
 .author span {
     font-size: 0.75rem;
 }
+
+@media (max-width: 768px) {
+    .item.small {
+        --height: 120px;
+    }
+
+    .item:not(.small):not(.large):not(.feedback) {
+        --height: 180px;
+    }
+
+    .item.large {
+        --height: 240px;
+    }
+
+    .item {
+        margin-left: 1rem;
+    }
+
+    .feedback {
+        width: min(400px, 80vw);
+    }
+}
 </style>
