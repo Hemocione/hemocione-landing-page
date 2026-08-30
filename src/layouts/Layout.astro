@@ -19,13 +19,22 @@ const SITE_URL = "https://www.hemocione.com.br";
 const canonicalURL = new URL(Astro.url.pathname, SITE_URL).toString();
 const pageDescription = description ?? fallbackDescription;
 
+const ORG_LOGO_URL =
+  "https://cdn.hemocione.com.br/events/uploads/1699940076138-logo_hemocione_fb-2(1).png";
+
 const ORG_SCHEMA = {
   "@context": "https://schema.org",
-  "@type": ["NGO", "Organization"],
+  "@type": "Organization",
+  additionalType: "https://schema.org/NGO",
   name: "Hemocione",
   alternateName: "Associação Hemocione",
   url: "https://www.hemocione.com.br",
-  logo: "https://cdn.hemocione.com.br/events/uploads/1699940076138-logo_hemocione_fb-2(1).png",
+  logo: {
+    "@type": "ImageObject",
+    url: ORG_LOGO_URL,
+    width: 1201,
+    height: 601,
+  },
   description:
     "Hemocione é uma ONG brasileira, fundada em 2017, dedicada a promover e facilitar a doação de sangue no Brasil.",
   foundingDate: "2017",
