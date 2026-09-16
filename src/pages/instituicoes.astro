@@ -1,0 +1,140 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Button from "../components/Button.astro";
+import WhatsAppButton from "../components/WhatsAppButton.astro";
+import { config } from "../utils/environment";
+---
+
+<Layout title="Para Instituições">
+  <main id="main" class="institutions-page" transition:animate="fade">
+    <section class="hero">
+      <h1>Sua instituição parceira do Hemocione</h1>
+      <p>
+        Empresas, escolas e universidades podem se tornar parceiras do
+        Hemocione para organizar coletas de sangue, mobilizar a comunidade e
+        acompanhar o impacto de cada ação — direto pelo portal de
+        instituições.
+      </p>
+      <div class="actions">
+        <a href={config.hemocioneInstitutions} target="_blank" rel="noopener noreferrer">
+          <Button type="primary">Cadastrar minha instituição</Button>
+        </a>
+        <WhatsAppButton
+          buttonType="plain"
+          message="Oi! Quero saber mais sobre como minha instituição pode ser parceira do Hemocione."
+        >
+          Prefiro falar no WhatsApp
+        </WhatsAppButton>
+      </div>
+    </section>
+
+    <section class="benefits">
+      <h2>O que sua instituição ganha</h2>
+      <div class="benefits-list">
+        <div class="benefit-card">
+          <h3>Coletas externas</h3>
+          <p>
+            Solicite uma coleta de sangue direto na sua instituição e
+            acompanhe cada etapa do pedido, da proposta de data até o dia do
+            evento.
+          </p>
+        </div>
+        <div class="benefit-card">
+          <h3>Eventos e inscrições</h3>
+          <p>
+            Acompanhe os eventos realizados na sua instituição, veja quantas
+            pessoas se inscreveram e baixe a lista de participantes.
+          </p>
+        </div>
+        <div class="benefit-card">
+          <h3>Certificação</h3>
+          <p>
+            Acompanhe o processo de certificação da sua instituição como
+            parceira ativa na promoção da doação de sangue.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact">
+      <h2>Ainda com dúvidas?</h2>
+      <p>Fale com a nossa equipe pelo WhatsApp antes de se cadastrar.</p>
+      <WhatsAppButton message="Oi! Tenho uma dúvida sobre o programa de parceria de instituições do Hemocione." />
+    </section>
+  </main>
+</Layout>
+
+<style>
+  .institutions-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+    padding: 3rem 1rem 4rem;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+  }
+
+  .actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 1rem;
+  }
+
+  .benefits {
+    width: 100%;
+  }
+
+  .benefits h2,
+  .contact h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .benefits-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .benefit-card {
+    background: var(--hemo-color-secondary, #fff);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    text-align: center;
+  }
+
+  .benefit-card h3 {
+    margin-bottom: 0.5rem;
+    color: var(--hemo-color-primary);
+  }
+
+  .contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+  }
+
+  @media (min-width: 700px) {
+    .benefits-list {
+      flex-direction: row;
+    }
+
+    .benefit-card {
+      flex: 1;
+    }
+  }
+</style>
