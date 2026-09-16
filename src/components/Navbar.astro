@@ -58,6 +58,9 @@ const currentPath = Astro.url.pathname;
             >Onde Doar</a
           >
         </li>
+        <li class={currentPath === "/instituicoes" ? "active" : ""}>
+          <a href="/instituicoes">Para Instituições</a>
+        </li>
         <li class={currentPath === "/app" ? "active" : ""}>
           <a href="/app">App</a>
         </li>
