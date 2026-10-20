@@ -45,29 +45,32 @@ const GAMES = [
           <div class="card-info">
             <h3>{game.title}</h3>
             <p>{game.description}</p>
-            <a
+            <Button
               href={`${config.hemocioneGames}${game.route}`}
               target="_blank"
               rel="noopener noreferrer"
               aria-label={`Jogar ${game.title} (abre em nova aba)`}
+              type="primary"
+              size="small"
+              className="play-button"
             >
-              <Button type="primary" size="small" className="play-button">
-                Jogar
-              </Button>
-            </a>
+              Jogar
+            </Button>
           </div>
         </article>
       ))
     }
   </div>
-  <a
+  <Button
     href={config.hemocioneGames}
     target="_blank"
     rel="noopener noreferrer"
     aria-label="Ver todos os jogos do Hemocione (abre em nova aba)"
+    type="plain"
+    className="all-games-button"
   >
-    <Button type="plain" className="all-games-button">Ver todos os jogos</Button>
-  </a>
+    Ver todos os jogos
+  </Button>
 </section>
 
 <style>
@@ -142,17 +145,6 @@ const GAMES = [
     flex: 1;
   }
 
-  .card-info a {
-    margin-top: 0.5rem;
-  }
-
-  .card-info a:focus-visible,
-  section > a:focus-visible {
-    outline: 2px solid var(--hemo-color-primary);
-    outline-offset: 4px;
-    border-radius: 0.25rem;
-  }
-
   @media screen and (max-width: 768px) {
     section {
       padding: 3rem 1rem;
@@ -169,6 +161,10 @@ const GAMES = [
 </style>
 
 <style is:global>
+  .play-button {
+    margin-top: 0.5rem;
+  }
+
   @media screen and (max-width: 768px) {
     .play-button,
     .all-games-button {

@@ -3,26 +3,40 @@ interface Props {
     size?: "small" | "medium";
     type?: "primary" | "secondary" | "plain";
     className?: string;
+    href?: string;
+    target?: string;
+    rel?: string;
+    "aria-label"?: string;
 }
 
-const { type = "primary", size, className = "" } = Astro.props;
+const { type = "primary", size, className = "", href, ...attrs } = Astro.props;
+const Tag = href ? "a" : "button";
 ---
 
-<button class:list={[type, size, className]}>
+<Tag href={href} class:list={["btn", type, size, className]} {...attrs}>
     <slot />
-</button>
+</Tag>
 
 <style>
-    button {
+    .btn {
+        display: inline-block;
+        box-sizing: border-box;
         padding: 1rem 3rem;
         border-radius: 0.5rem;
         cursor: pointer;
         font-size: 1rem;
         font-weight: 600;
+        line-height: 1;
+        text-align: center;
         border: 1px solid transparent;
         transition:
             background-color 0.2s,
             border-color 0.2s;
+    }
+
+    .btn:focus-visible {
+        outline: 2px solid var(--hemo-color-primary);
+        outline-offset: 2px;
     }
 
     .secondary {
