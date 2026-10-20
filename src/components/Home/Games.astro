@@ -1,0 +1,178 @@
+---
+import Title from "../Title.astro";
+import Button from "../Button.astro";
+import { config } from "../../utils/environment";
+
+const GAMES = [
+  {
+    title: "Corrida do Hemárcio",
+    description:
+      "Corra pelas veias, desvie dos vírus e entregue cada parte do sangue ao paciente certo.",
+    image: "/games/corrida-do-hemarcio.png",
+    alt: "Arte da Corrida do Hemárcio, jogo de corrida nas veias",
+    route: "/runner",
+  },
+  {
+    title: "Encanador de Veias",
+    description:
+      "Gire os canos e leve cada bolsa de sangue ao paciente com tipo compatível.",
+    image: "/games/encanador-de-veias.png",
+    alt: "Arte do Encanador de Veias, jogo de conectar canos e tipos sanguíneos",
+    route: "/encanador",
+  },
+  {
+    title: "Hemocentro do Hemárcio",
+    description:
+      "Gerencie o estoque dos 8 tipos sanguíneos e mantenha o hemocentro funcionando o ano todo.",
+    image: "/games/hemocentro-do-hemarcio.png",
+    alt: "Arte do Hemocentro do Hemárcio, jogo de gerenciar um hemocentro",
+    route: "/hemocentro",
+  },
+];
+---
+
+<section class="container" id="jogos">
+  <Title subtitle="Aprenda jogando">Jogue e aprenda sobre doação de sangue</Title>
+  <p class="intro">
+    Três jogos gratuitos do Hemárcio para descobrir o caminho do sangue, a
+    compatibilidade entre tipos e o dia a dia de um hemocentro.
+  </p>
+  <div class="cards">
+    {
+      GAMES.map((game) => (
+        <article class="card">
+          <img src={game.image} alt={game.alt} loading="lazy" />
+          <div class="card-info">
+            <h3>{game.title}</h3>
+            <p>{game.description}</p>
+            <a
+              href={`${config.hemocioneGames}${game.route}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`Jogar ${game.title} (abre em nova aba)`}
+            >
+              <Button type="primary" size="small" className="play-button">
+                Jogar
+              </Button>
+            </a>
+          </div>
+        </article>
+      ))
+    }
+  </div>
+  <a
+    href={config.hemocioneGames}
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Ver todos os jogos do Hemocione (abre em nova aba)"
+  >
+    <Button type="plain" className="all-games-button">Ver todos os jogos</Button>
+  </a>
+</section>
+
+<style>
+  section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25rem;
+    padding: 4rem 0 3rem;
+  }
+
+  .intro {
+    margin: 1rem 0 0;
+    max-width: 640px;
+    text-align: center;
+    color: var(--hemo-color-text-secondary);
+  }
+
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+    margin: 2rem 0;
+    width: 100%;
+  }
+
+  .card {
+    background-color: var(--hemo-color-background);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1rem;
+    box-shadow: 0px 2px 4px var(--hemo-color-slate-300);
+    border-radius: 0.5rem;
+    transition: all 0.3s;
+  }
+
+  .card:hover {
+    transform: translateY(-0.25rem);
+    box-shadow: 0px 8px 8px var(--hemo-color-slate-300);
+  }
+
+  .card:focus-within {
+    outline: 2px solid var(--hemo-color-primary);
+    outline-offset: 2px;
+  }
+
+  .card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 0.5rem;
+  }
+
+  .card-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    width: 100%;
+    flex: 1;
+  }
+
+  .card-info h3 {
+    margin: 0.5rem 0 0;
+    font-size: 1.25rem;
+  }
+
+  .card-info p {
+    margin: 0;
+    flex: 1;
+  }
+
+  .card-info a {
+    margin-top: 0.5rem;
+  }
+
+  .card-info a:focus-visible,
+  section > a:focus-visible {
+    outline: 2px solid var(--hemo-color-primary);
+    outline-offset: 4px;
+    border-radius: 0.25rem;
+  }
+
+  @media screen and (max-width: 768px) {
+    section {
+      padding: 3rem 1rem;
+    }
+
+    .cards {
+      grid-template-columns: 1fr;
+    }
+
+    .intro {
+      font-size: 1rem;
+    }
+  }
+</style>
+
+<style is:global>
+  @media screen and (max-width: 768px) {
+    .play-button,
+    .all-games-button {
+      width: calc(100% - 2rem);
+    }
+  }
+</style>

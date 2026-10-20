@@ -21,4 +21,8 @@ export const config = {
     "HEMOCIONE_COLETA",
     "https://coleta.hemocione.com.br"
   ),
+  hemocioneGames: getFromEnv(
+    "HEMOCIONE_GAMES",
+    "https://jogos.hemocione.com.br"
+  ),
 } as const;
