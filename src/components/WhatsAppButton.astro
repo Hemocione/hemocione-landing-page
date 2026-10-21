@@ -1,0 +1,27 @@
+---
+import Button from "./Button.astro";
+
+interface Props {
+  phone?: string;
+  message: string;
+  buttonType?: "primary" | "secondary" | "plain";
+  size?: "small" | "medium";
+  className?: string;
+}
+
+const {
+  phone = "5521970114393",
+  message,
+  buttonType = "secondary",
+  size,
+  className,
+} = Astro.props;
+
+const href = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+---
+
+<a href={href} target="_blank" rel="noopener noreferrer">
+  <Button type={buttonType} size={size} className={className}>
+    <slot>Falar no WhatsApp</slot>
+  </Button>
+</a>
