@@ -51,6 +51,13 @@ const SOCIAL_LINKS = [
           <a href="/app">App Hemocione</a>
         </li>
         <li>
+          <a
+            href={config.hemocioneChat}
+            target="_blank"
+            rel="noopener noreferrer">Hemárcio</a
+          >
+        </li>
+        <li>
           <a href={config.hemocioneCompetitions} target="_blank"
             >Copas Hemocione</a
           >
@@ -183,6 +190,11 @@ const SOCIAL_LINKS = [
   }
 
   @media (max-width: 768px) {
+    footer {
+      /* Libera espaço para a bolha do Hemárcio (fixa no canto inferior direito). */
+      padding-bottom: 6rem;
+    }
+
     .content {
       flex-direction: column;
       gap: 2rem;

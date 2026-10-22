@@ -1,0 +1,74 @@
+---
+import { config } from "../utils/environment";
+
+const enabled = import.meta.env.PUBLIC_HEMARCIO_ENABLED !== "false";
+const sdkUrl = `${config.hemocioneChat}/sdk/0.2.0/hemocione-sdk.js`;
+---
+
+{enabled && <meta name="hemarcio-sdk" content={sdkUrl} />}
+
+<script>
+  // O módulo roda uma vez; ViewTransitions só dispara "astro:page-load".
+  // Cria a bolha uma única vez e, a cada navegação, atualiza o contexto.
+  type ChatContext = { product: string; page: string };
+  type ChatHandle = { setContext: (ctx: ChatContext) => void };
+  type HemarcioWindow = Window & {
+    __hemarcioChat?: ChatHandle;
+    __hemarcioLoading?: boolean;
+    __hemarcioHost?: Element | null;
+    HemocioneSDK?: {
+      createHemocioneChat: (opts: {
+        context: ChatContext;
+        offset: { x: number; y: number };
+      }) => ChatHandle;
+    };
+  };
+
+  const w = window as HemarcioWindow;
+
+  function getContext(): ChatContext {
+    return { product: "landing", page: location.pathname };
+  }
+
+  function createChat() {
+    if (w.__hemarcioChat) {
+      w.__hemarcioChat.setContext(getContext());
+      return;
+    }
+    if (!w.HemocioneSDK) return;
+    w.__hemarcioChat = w.HemocioneSDK.createHemocioneChat({
+      context: getContext(),
+      offset: { x: 16, y: 16 },
+    });
+    w.__hemarcioHost = document.querySelector("[data-hemocione-chat]");
+  }
+
+  // A bolha vive no <body>, que o ViewTransitions troca a cada navegação.
+  // Reanexa o mesmo elemento ao novo body para manter a conversa aberta.
+  document.addEventListener("astro:after-swap", () => {
+    const host = w.__hemarcioHost;
+    if (host && !host.isConnected) document.body.appendChild(host);
+  });
+
+  function init() {
+    // Não renderiza dentro de iframe.
+    if (w.self !== w.top) return;
+    const sdkUrl = document
+      .querySelector('meta[name="hemarcio-sdk"]')
+      ?.getAttribute("content");
+    if (!sdkUrl) return; // desabilitado por PUBLIC_HEMARCIO_ENABLED=false
+    if (w.HemocioneSDK || w.__hemarcioChat) return createChat();
+    if (w.__hemarcioLoading) return;
+    w.__hemarcioLoading = true;
+    const script = document.createElement("script");
+    script.src = sdkUrl;
+    script.async = true;
+    script.onload = createChat;
+    script.onerror = () => {
+      w.__hemarcioLoading = false;
+    };
+    document.head.appendChild(script);
+  }
+
+  document.addEventListener("astro:page-load", init);
+</script>

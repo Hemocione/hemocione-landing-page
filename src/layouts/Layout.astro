@@ -3,6 +3,8 @@ import { ViewTransitions } from "astro:transitions";
 import LoadingIndicator from "astro-loading-indicator/component";
 import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
+import HemarcioChat from "../components/HemarcioChat.astro";
+import { config } from "../utils/environment";
 import "../styles/global.css";
 
 interface Props {
@@ -55,6 +57,24 @@ const ORG_SCHEMA = {
   },
 };
 
+const HEMARCIO_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "Hemárcio",
+  applicationCategory: "HealthApplication",
+  operatingSystem: "Web",
+  url: config.hemocioneChat,
+  inLanguage: "pt-BR",
+  description:
+    "Hemárcio é o assistente do Hemocione para doadores de sangue: tira dúvidas sobre doação, encontra onde doar, faz o questionário Posso doar? e recebe ideias e relatos para a equipe. Orienta, mas não substitui a triagem do hemocentro.",
+  offers: {
+    "@type": "Offer",
+    price: "0",
+    priceCurrency: "BRL",
+  },
+  publisher: { "@type": "Organization", name: "Hemocione", url: SITE_URL },
+};
+
 const pageTitle = title ? `Hemocione - ${title}` : "Hemocione - Doe Sangue, Doe Vida";
 
 const WEBPAGE_SCHEMA = {
@@ -105,6 +125,9 @@ const WEBPAGE_SCHEMA = {
     <script
       type="application/ld+json"
       set:html={JSON.stringify(WEBPAGE_SCHEMA)}></script>
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify(HEMARCIO_SCHEMA)}></script>
     <title>{pageTitle}</title>
     <ViewTransitions />
     <LoadingIndicator color="var(--hemo-color-primary)" />
@@ -156,6 +179,7 @@ const WEBPAGE_SCHEMA = {
     <Navbar />
     <slot />
     <Footer />
+    <HemarcioChat />
     <style>
       body {
         display: flex;
