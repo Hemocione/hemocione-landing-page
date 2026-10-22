@@ -24,6 +24,8 @@
 - [Onde doar](https://ondedoar.hemocione.com.br): localizador de pontos de doação de sangue.
 - [Descubra se você pode doar](https://possodoar.hemocione.com.br): questionário de elegibilidade para doação de sangue.
 - [Irmãos de Sangue](https://apoie.hemocione.com.br): doação financeira recorrente para sustentar o trabalho do Hemocione.
+- [Hemárcio](https://chat.hemocione.com.br): assistente do doador. Tira dúvidas sobre doação de sangue, encontra onde doar, faz o questionário "Posso doar?" e recebe ideias e relatos para a equipe. Grátis, com login da conta Hemocione.
+- [Jogos educativos](https://jogos.hemocione.com.br): jogos gratuitos do Hemárcio para aprender sobre o caminho do sangue, a compatibilidade entre tipos e o dia a dia de um hemocentro.
 - [Ajuda AI](https://ajudaai.hemocione.com.br): pedidos de ajuda para quem precisa de sangue ou doadores.
 
 ## Perguntas frequentes
@@ -31,6 +33,7 @@
 - O que é o Hemocione? O Hemocione é uma ONG brasileira, fundada em 2017, que promove a doação de sangue no Brasil. A organização conecta doadores, hemocentros parceiros e instituições através de eventos, uma plataforma digital e campanhas de conscientização.
 - Como posso doar sangue pelo Hemocione? Participe de um evento de doação organizado pelo Hemocione ou use a ferramenta "Onde Doar" para encontrar o hemocentro mais próximo. Antes de doar, use "Descubra se você pode doar" para checar sua elegibilidade.
 - Como uma empresa pode organizar uma campanha de doação de sangue? Use o serviço "Leve uma Coleta" para trazer um hemocentro parceiro até o escritório da empresa, escola ou universidade. A solicitação pela plataforma é gratuita; veja o passo a passo em https://www.hemocione.com.br/leve-uma-coleta.
+- O que é o Hemárcio? O Hemárcio é o assistente do Hemocione para doadores. Ele tira dúvidas sobre doação de sangue, encontra hemocentros e eventos de coleta perto de você, faz com você o questionário "Posso doar?" e recebe ideias e relatos de problemas para a equipe. É grátis e pede login com a conta Hemocione. Ele orienta, mas não substitui a triagem do hemocentro.
 - O Hemocione é uma organização confiável? Sim. O Hemocione é uma ONG em atividade desde 2017, com mais de 230 eventos de doação realizados e mais de 10 mil bolsas de sangue coletadas, em parceria com hemocentros de todo o Brasil.
 
 ## Contato

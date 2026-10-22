@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { config } from "../utils/environment";
 ---
 
 <Layout
@@ -56,6 +57,20 @@ import Layout from "../layouts/Layout.astro";
         href="https://possodoar.hemocione.com.br"
         target="_blank"
         rel="noopener noreferrer">Verificar elegibilidade</a
+      >
+
+      <h2>Hemárcio, assistente do doador</h2>
+      <p>
+        Converse com o Hemárcio para tirar dúvidas sobre doação de sangue,
+        encontrar onde doar, fazer o questionário "Posso doar?" e enviar ideias
+        ou relatos de problemas para a equipe. É grátis e pede login com a
+        conta Hemocione. O Hemárcio orienta, mas não substitui a triagem do
+        hemocentro.
+      </p>
+      <a
+        href={config.hemocioneChat}
+        target="_blank"
+        rel="noopener noreferrer">Falar com o Hemárcio</a
       >
 
       <h2>Copas Hemocione</h2>
