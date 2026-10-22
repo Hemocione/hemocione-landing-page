@@ -1,0 +1,166 @@
+---
+import Title from "../Title.astro";
+import Button from "../Button.astro";
+import { config } from "../../utils/environment";
+
+const CAPABILITIES = [
+  {
+    title: "Tira dúvidas",
+    description: "Quem pode doar, como se preparar e o que esperar da doação.",
+  },
+  {
+    title: "Acha onde doar",
+    description: "Encontra hemocentros e eventos de coleta perto de você.",
+  },
+  {
+    title: "Faz o “Posso doar?”",
+    description: "Responde o questionário com você e explica o resultado.",
+  },
+  {
+    title: "Ouve sua ideia",
+    description: "Recebe ideias e relatos de problemas para a equipe.",
+  },
+];
+---
+
+<section class="container" id="hemarcio">
+  <div class="mascot">
+    <img
+      src="/hemarcio/hemarcio.svg"
+      alt="Hemárcio, o mascote do Hemocione, em pé e sorrindo"
+      loading="lazy"
+    />
+  </div>
+  <div class="content">
+    <Title subtitle="Assistente do doador">Converse com o Hemárcio</Title>
+    <p class="intro">
+      O Hemárcio é o assistente do Hemocione para quem quer doar sangue.
+      Ele é grátis e pede login com a sua conta Hemocione.
+    </p>
+    <ul class="capabilities">
+      {
+        CAPABILITIES.map((item) => (
+          <li>
+            <h3>{item.title}</h3>
+            <p>{item.description}</p>
+          </li>
+        ))
+      }
+    </ul>
+    <p class="note">
+      O Hemárcio orienta, mas não substitui a triagem do hemocentro.
+    </p>
+    <Button
+      href={config.hemocioneChat}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Falar com o Hemárcio (abre em nova aba)"
+      type="primary"
+      className="hemarcio-button"
+    >
+      Falar com o Hemárcio
+    </Button>
+  </div>
+</section>
+
+<style>
+  section {
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+    align-items: center;
+    gap: 3rem;
+    padding: 4rem 1rem 3rem;
+  }
+
+  .mascot {
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+    border-radius: 1rem;
+    background-color: var(--hemo-color-valerie);
+  }
+
+  .mascot img {
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+
+  .content :global(.content),
+  .content :global(span) {
+    text-align: left;
+  }
+
+  .intro {
+    margin: 1rem 0 0;
+    max-width: 560px;
+  }
+
+  .capabilities {
+    list-style: none;
+    margin: 1.5rem 0 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+    width: 100%;
+  }
+
+  .capabilities li {
+    background-color: var(--hemo-color-background);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: 0px 2px 4px var(--hemo-color-slate-300);
+  }
+
+  .capabilities h3 {
+    margin: 0 0 0.25rem;
+    font-size: 1.125rem;
+  }
+
+  .capabilities p {
+    margin: 0;
+  }
+
+  .note {
+    margin: 1rem 0 1.5rem;
+    font-size: 0.875rem;
+    color: var(--hemo-color-text-secondary);
+  }
+
+  @media screen and (max-width: 768px) {
+    section {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      padding: 3rem 1rem;
+    }
+
+    .mascot img {
+      max-width: 220px;
+    }
+
+    .capabilities {
+      grid-template-columns: 1fr;
+    }
+
+    .intro,
+    .note {
+      text-align: center;
+    }
+  }
+</style>
+
+<style is:global>
+  @media screen and (max-width: 768px) {
+    .hemarcio-button {
+      width: 100%;
+    }
+  }
+</style>

@@ -21,6 +21,10 @@ export const config = {
     "HEMOCIONE_COLETA",
     "https://coleta.hemocione.com.br"
   ),
+  hemocioneChat: getFromEnv(
+    "HEMOCIONE_CHAT",
+    "https://chat.hemocione.com.br"
+  ),
   hemocioneGames: getFromEnv(
     "HEMOCIONE_GAMES",
     "https://jogos.hemocione.com.br"
